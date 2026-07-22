@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegistoDiarios {
+public class RegistoDiario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
