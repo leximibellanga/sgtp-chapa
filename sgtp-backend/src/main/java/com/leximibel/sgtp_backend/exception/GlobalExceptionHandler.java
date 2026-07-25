@@ -40,5 +40,24 @@ public class GlobalExceptionHandler {
                 .body(Map.of("erro", "Email ou senha invalidos!"));
     }
 
+    // Not Found
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleNotFound(ResourceNotFoundException e) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND).body(Map.of("erro", e.getMessage()));
+    }
 
+    // Regras de Negocio
+    @ExceptionHandler(RegraDeNegocioException.class)
+    public ResponseEntity<Map<String, String>> handleRegraDeNegocio(RegraDeNegocioException e) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST).body(Map.of("erro", e.getMessage()));
+    }
+
+    // Sem permissao
+    @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class)
+    public ResponseEntity<Map<String, String>> handleAccessDenied(Exception e) {
+        return ResponseEntity
+                .status(HttpStatus.FORBIDDEN).body(Map.of("erro", "Sem permissao para aceder a este recurso"));
+    }
 }

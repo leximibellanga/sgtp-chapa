@@ -1,4 +1,4 @@
-package com.leximibel.sgtp_backend.dto.response;
+package com.leximibel.sgtp_backend.dto.response.auth;
 
 public record AuthResponse (
         String token,
