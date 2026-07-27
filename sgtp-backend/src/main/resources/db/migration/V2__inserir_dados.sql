@@ -1,5 +1,5 @@
 -- ============= USUARIOS ===================
--- Senha: 123456, para todos usuarios
+-- Senha: 123456 | para todos usuarios
 INSERT INTO usuarios (nome, email, telefone, senha, role, ativo, criado_em) VALUES
 ('Admin', 'admin@chapa.com', 820000001, '$2b$10$iaXcZTbQ8pwsnl6rRefUa.Yr.Oh/mpkXqSrTelgMI5bXq/rjw/kRK', 'ADMIN', true, NOW()),
 ('Yamal Motorista', 'yamal@chapa.com', 820000002, '$2b$10$iaXcZTbQ8pwsnl6rRefUa.Yr.Oh/mpkXqSrTelgMI5bXq/rjw/kRK', 'MOTORISTA', true, NOW()),

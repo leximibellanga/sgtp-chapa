@@ -1,5 +1,6 @@
 -- BASE DE DADOS: sgtp_chapa
 
+-- tabela de usuarios
 CREATE TABLE usuarios (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(120) NOT NULL,
@@ -11,7 +12,7 @@ CREATE TABLE usuarios (
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
+-- tabela de carros
 CREATE TABLE carros (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     matricula VARCHAR(20) NOT NULL UNIQUE,
@@ -22,7 +23,7 @@ CREATE TABLE carros (
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
+-- tabela de registos diarios
 CREATE TABLE registos_diarios (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     carro_id BIGINT NOT NULL,
@@ -39,7 +40,7 @@ CREATE TABLE registos_diarios (
     CONSTRAINT fk_registo_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 
-
+-- tabela de gastos
 CREATE TABLE gastos (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     carro_id BIGINT NOT NULL,
