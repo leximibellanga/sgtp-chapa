@@ -9,13 +9,13 @@ import java.util.Optional;
 
 public interface RegistoDiarioRepository extends JpaRepository<RegistoDiario, Long> {
     // Retorna Lista de registos diarios de um certo usuario
-    List<RegistoDiario> findByUsuario(Long usuario_id);
+    List<RegistoDiario> findByUsuarioId(Long usuario_id);
 
     // Retorna Lista de registos diarios de um certo carro
-    List<RegistoDiario> findByCarro(Long carro_id);
+    List<RegistoDiario> findByCarroId(Long carro_id);
 
     // Retorna Lista de registos diarios de um certo usuario com filtro de data [inicio e fim]
-    List<RegistoDiario> findByUsuarioAndDataBetween(Long usuario_id, LocalDate inicio, LocalDate fim);
+    List<RegistoDiario> findByUsuarioIdAndDataBetween(Long usuario_id, LocalDate inicio, LocalDate fim);
 
     // Retorna Lista de registos diarios com filtro de data [inicio e fim]
     List<RegistoDiario> findByDataBetween(LocalDate inicio, LocalDate fim);
