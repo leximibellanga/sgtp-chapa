@@ -1,16 +1,16 @@
 const meses = [
-  "Jan.",
-  "Fev.",
-  "Marco",
-  "Abril",
-  "Maio",
-  "Junho",
-  "Julho",
-  "Ago.",
-  "Set.",
-  "Out.",
-  "Nov.",
-  "Dez.",
+  "Jan",
+  "Fev",
+  "Mar",
+  "Abr",
+  "Mai",
+  "Jun",
+  "Jul",
+  "Ago",
+  "Set",
+  "Out",
+  "Nov",
+  "Dez",
 ];
 
 export default function formatarData(data) {
@@ -26,6 +26,6 @@ export default function formatarData(data) {
   const ano = criadoEm.getFullYear();
 
   // Organizar e exibir a data completa
-  const dataFormatada = `${dia} de ${mes} de ${ano}`;
+  const dataFormatada = `${dia} / ${mes}. / ${ano}`;
   return dataFormatada;
 }
