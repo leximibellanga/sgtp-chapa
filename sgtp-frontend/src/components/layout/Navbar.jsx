@@ -26,7 +26,7 @@ export default function Navbar() {
     .toUpperCase();
 
   return (
-    <header className="border-b border-emerald-950/5 rounded-tl-lg rounded-tr-lg flex items-center justify-end gap-5 px-5 py-2.5 sm:justify-between">
+    <header className="border-b border-emerald-950/10 rounded-tl-lg rounded-tr-lg flex items-center justify-end gap-5 px-5 py-2.5 sm:justify-between">
       <div className="relative hidden w-60 items-center ml-3 sm:flex">
         <Search size={14} className="text-emerald-950/80 ml-4 z-10" />
         <input

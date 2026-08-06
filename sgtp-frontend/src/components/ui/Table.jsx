@@ -1,7 +1,7 @@
 const Table = ({ children }) => {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-sm">{children}</table>
+      <table className="w-full text-sm border-collapse">{children}</table>
     </div>
   );
 };
@@ -26,13 +26,13 @@ const TableRow = ({ children, onClick }) => {
   );
 };
 
-const TableTh = ({ titulo }) => {
-  return <th className="py-3 px-3 font-semibold">{titulo}</th>;
+const TableTh = ({ titulo, className }) => {
+  return <th className={`py-3 px-3 font-semibold ${className}`}>{titulo}</th>;
 };
 
 const TableTd = ({ text, className, children }) => {
   return (
-    <td className={`${className} py-3 px-3 text-emerald-950/80`}>
+    <td className={`${className} text-nowrap py-3 px-3 text-emerald-950/80`}>
       {children}
       {text}
     </td>
