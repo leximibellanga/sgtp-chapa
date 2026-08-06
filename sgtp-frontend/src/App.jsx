@@ -41,7 +41,7 @@ const App = () => {
             </AuthProvider>
 
             {/* Notificacoes */}
-            <Toaster position='top-center' richColors/>
+            <Toaster position='top-center' duration={3000} closeButton richColors/>
         </BrowserRouter>
     )
 }

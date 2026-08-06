@@ -1,3 +1,5 @@
+import { FileX, Inbox } from "lucide-react";
+
 const Table = ({ children }) => {
   return (
     <div className="overflow-x-auto">
@@ -44,9 +46,12 @@ const TableTdEmpty = ({ colSpan, textEmpty = "Nenhum registo encontrado" }) => {
     <tr>
       <td
         colSpan={colSpan}
-        className="py-10 text-center text-text-muted text-sm"
+        className="py-10 text-center text-emerald-950/60 text-sm"
       >
-        {textEmpty}
+        <div className="flex flex-col items-center gap-5">
+          <Inbox size={32} />
+          {textEmpty}
+        </div>
       </td>
     </tr>
   );
