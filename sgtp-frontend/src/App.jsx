@@ -8,6 +8,7 @@ import AdminLayout from './components/layout/AdminLayout'
 import MotoristaLayout from './components/layout/MotoristaLayout'
 import ListaCarrosPage from './pages/admin/carros/ListaCarrosPage'
 import { Toaster } from 'sonner'
+import ListaUsuariosPage from './pages/admin/usuarios/ListaUsuariosPage'
 
 const App = () => {
     return (
@@ -21,7 +22,7 @@ const App = () => {
                             <Route element={<AdminLayout />}>
                                 <Route path="/admin/dashboard" element={<div>Dashboad (em construcao)</div>} />
                                 <Route path="/admin/carros" element={<ListaCarrosPage />} />
-                                <Route path="/admin/usuarios" element={<div>Usuarios (em construcao)</div>} />
+                                <Route path="/admin/usuarios" element={<ListaUsuariosPage />} />
                                 <Route path="/admin/registos" element={<div>Registos (em construcao)</div>} />
                                 <Route path="/admin/gastos" element={<div>Gastos (em construcao)</div>} />
                                 <Route path="/admin/relatorios" element={<div>Relatorios (em construcao)</div>} />
