@@ -20,6 +20,7 @@ import {
 import Badge from "../../../components/ui/Badge";
 import CarroFormModal from "./CarroFormModal";
 import formatarData from "../../../utils/formatDate";
+import Breadcrump from "../../../components/ui/Breadcrump";
 
 export default function ListaCarrosPage() {
   const [carros, setCarros] = useState([]);
@@ -84,9 +85,13 @@ export default function ListaCarrosPage() {
 
   return (
     <div>
+      {/* <Breadcrump items={[{label: "Carros"}]} /> */}
+
       <div className="flex flex-col mb-6">
         <h1 className="font-bold text-2xl text-emerald-950">Carros</h1>
-        <p className="text-emerald-950/60 text-sm">Listagem dos carros da empresa.</p>
+        <p className="text-emerald-950/60 text-sm">
+          Listagem dos carros da empresa.
+        </p>
       </div>
 
       {carregando ? (
@@ -125,7 +130,7 @@ export default function ListaCarrosPage() {
               {carros.length === 0 ? (
                 <TableTdEmpty
                   colSpan={6}
-                  textEmpty="Nenhum dado foi encontrado"
+                  textEmpty="Nenhum carro foi encontrado"
                 />
               ) : (
                 carros.map((carro) => (
@@ -140,7 +145,7 @@ export default function ListaCarrosPage() {
                       </Badge>
                     </TableTd>
                     <TableTd text={formatarData(carro.criadoEm)} />
-                    <TableTd> 
+                    <TableTd>
                       <div className="flex gap-2">
                         <button
                           onClick={() => abrirEdicao(carro)}
@@ -158,7 +163,10 @@ export default function ListaCarrosPage() {
                                     }`}
                           title={carro.ativo ? "Desativar" : "Ativar"}
                         >
-                          <Power size={14} className={`${carro.ativo ? "text-red-600/80" : "text-green-600/80"}`} />
+                          <Power
+                            size={14}
+                            className={`${carro.ativo ? "text-red-600/80" : "text-green-600/80"}`}
+                          />
                         </button>
                       </div>
                     </TableTd>
