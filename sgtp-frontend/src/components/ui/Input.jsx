@@ -19,7 +19,7 @@ const Input = forwardRef(
           <input
             ref={ref}
             type={tipoReal}
-            className={`w-full bg-emerald-950/5 border border-emerald-950/20 rounded-lg px-3.5 py-2.5 text-sm outline-none transition focus:ring-2 focus:ring-emerald-950/30 text-emerald-950/80 focus:border-verde-mata ${isSenha ? "pr-10" : ""}`}
+            className={`w-full bg-emerald-950/5 border border-emerald-950/20 rounded-lg px-3.5 py-2.5 text-sm text-emerald-950/80 outline-none transition focus:ring-2 focus:ring-emerald-950/30 focus:border-verde-mata ${isSenha ? "pr-10" : ""}`}
             {...props}
           />
 
