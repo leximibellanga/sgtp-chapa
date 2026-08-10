@@ -9,6 +9,9 @@ import MotoristaLayout from './components/layout/MotoristaLayout'
 import ListaCarrosPage from './pages/admin/carros/ListaCarrosPage'
 import { Toaster } from 'sonner'
 import ListaUsuariosPage from './pages/admin/usuarios/ListaUsuariosPage'
+import ListaRegistosPage from './pages/admin/registos/ListaRegistosPage'
+import ListaRegistosMotoristaPage from './pages/motorista/ListaRegistosMotoristaPage'
+import FormRegistoPage from './pages/motorista/FormRegistoPage'
 
 const App = () => {
     return (
@@ -23,7 +26,7 @@ const App = () => {
                                 <Route path="/admin/dashboard" element={<div>Dashboad (em construcao)</div>} />
                                 <Route path="/admin/carros" element={<ListaCarrosPage />} />
                                 <Route path="/admin/usuarios" element={<ListaUsuariosPage />} />
-                                <Route path="/admin/registos" element={<div>Registos (em construcao)</div>} />
+                                <Route path="/admin/registos" element={<ListaRegistosPage />} />
                                 <Route path="/admin/gastos" element={<div>Gastos (em construcao)</div>} />
                                 <Route path="/admin/relatorios" element={<div>Relatorios (em construcao)</div>} />
                             </Route>
@@ -32,7 +35,8 @@ const App = () => {
                         <Route element={<RoleRoute roleExigida={"MOTORISTA"} />}>
                             <Route element={<MotoristaLayout />}>
                                 <Route path="/motorista/dashboard" element={<div>Dashboad (em construcao)</div>} />
-                                <Route path="/motorista/registos" element={<div>Registos (em construcao)</div>} />
+                                <Route path="/motorista/registos" element={<ListaRegistosMotoristaPage />} />
+                                <Route path="/motorista/registos/novo" element={<FormRegistoPage />} />
                             </Route>
                         </Route>
                     </Route>
