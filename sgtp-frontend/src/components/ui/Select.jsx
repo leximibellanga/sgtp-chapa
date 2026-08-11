@@ -10,7 +10,7 @@ const Select = forwardRef(({ label, error, children, className = "", ...props },
       <div className="relative">
         <select
           ref={ref}
-          className={`w-full appearance-none border border-emerald-950/20 rounded-lg px-3.5 py-2.5 pr-9 text-sm text-emerald-950/80 outline-none transition bg-emerald-950/5 focus:ring-2 focus:ring-emerald-950/30 focus:border-emerald-950/30 ${
+          className={`w-full appearance-none border border-emerald-950/20 rounded-lg px-3.5 py-2.5 pr-9 text-sm text-emerald-950/80 outline-none transition bg-emerald-950/5 focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-950/60 focus:bg-white ${
             error ? "border-coral" : "border-border"
           }`}
           {...props}
