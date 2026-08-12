@@ -160,7 +160,7 @@ export default function ListaRegistosPage() {
                   )}
                 </TableTd>
                 <TableTd>
-                  <span className="text-text-muted text-xs">
+                  <span className="text-emerald-950/60 text-xs">
                     {r.justificativa || "—"}
                   </span>
                 </TableTd>
