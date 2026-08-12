@@ -12,6 +12,7 @@ import ListaUsuariosPage from './pages/admin/usuarios/ListaUsuariosPage'
 import ListaRegistosPage from './pages/admin/registos/ListaRegistosPage'
 import ListaRegistosMotoristaPage from './pages/motorista/ListaRegistosMotoristaPage'
 import FormRegistoPage from './pages/motorista/FormRegistoPage'
+import ListaGastosPage from './pages/admin/gastos/ListaGastosPage'
 
 const App = () => {
     return (
@@ -27,7 +28,7 @@ const App = () => {
                                 <Route path="/admin/carros" element={<ListaCarrosPage />} />
                                 <Route path="/admin/usuarios" element={<ListaUsuariosPage />} />
                                 <Route path="/admin/registos" element={<ListaRegistosPage />} />
-                                <Route path="/admin/gastos" element={<div>Gastos (em construcao)</div>} />
+                                <Route path="/admin/gastos" element={<ListaGastosPage />} />
                                 <Route path="/admin/relatorios" element={<div>Relatorios (em construcao)</div>} />
                             </Route>
                         </Route>
