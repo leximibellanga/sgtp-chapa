@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { Bell, ChevronDown, LogOut, Search, User } from "lucide-react";
 import Input from "../ui/Input";
+import formatarDate from "../../utils/formatDate";
 
 export default function Navbar() {
   const { usuario, logout } = useAuth();
@@ -18,23 +19,25 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickFora);
   }, []);
 
-  const iniciais = usuario?.nome
-    ?.split(" ")
-    .slice(0, 2)
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase();
-
   return (
     <header className="border-b border-emerald-950/10 rounded-tl-lg rounded-tr-lg flex items-center justify-end gap-5 px-5 py-2.5 sm:justify-between">
       <div className="relative hidden w-60 items-center ml-3 sm:flex">
         <Search size={14} className="text-emerald-950/80 ml-4 z-10" />
         <input
-          className="absolute w-full bg-emerald-950/5 border border-emerald-950/20 pl-9 pr-4 py-1.5 rounded-lg text-sm outline-none transition focus:ring-2 focus:ring-emerald-950/30 text-emerald-950/80"
+          className="absolute w-full bg-emerald-950/5 border border-emerald-950/20 pl-9 pr-4 py-1.5 rounded-lg text-sm outline-none transition focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-950/60 focus:bg-white text-emerald-950/80"
           placeholder="Pesquisar..."
         />
       </div>
       <div className="relative flex items-center gap-2" ref={menuRef}>
+        {/* Data e Hora */}
+        {/* <div className="flex flex-col items-end mr-3">
+          <span className="font-bold font-['Poppins'] text-[14px] text-emerald-950">
+            12:20
+          </span>
+          <span className="text-xs text-emerald-950/60 capitalize">
+            {formatarDate((new Date().toDateString()))}
+          </span>
+        </div> */}
         <button
           className="relative bg-white p-1.5 rounded-full border border-emerald-950/10 cursor-pointer hover:animate-pulse hover:shadow"
           onClick={() => alert("Notificaoes ainda em desenvolvimento")}
@@ -47,7 +50,7 @@ export default function Navbar() {
           className="flex items-center gap-3 px-2 py-1.5 rounded-lg hover:bg-emerald-950/5 cursor-pointer transition"
         >
           <div className="w-8 h-8 rounded-full bg-green-950 text-neutral-200 flex items-center justify-center text-xs font-bold">
-            {iniciais}
+            <User size={18} />
           </div>
           <div className="text-left hidden sm:block">
             <p className="text-sm font-medium text-green-950 leading-tight">
