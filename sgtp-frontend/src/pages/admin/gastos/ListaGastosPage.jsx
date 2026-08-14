@@ -172,7 +172,7 @@ export default function ListaGastosPage() {
                 </TableTd>
                 <TableTd>
                   <Badge variant={categoriaBadge[g.categoriaGasto]}>
-                    {g.categoriaGasto}
+                    {categoriaLabel[g.categoriaGasto]}
                   </Badge>
                 </TableTd>
                 <TableTd text={formatarDate(g.criadoEm)} />
@@ -185,7 +185,7 @@ export default function ListaGastosPage() {
                       <PenBoxIcon size={14} className="text-blue-600/80" />
                     </button>
                     <button
-                      onClick={() => alternarStatus(g)}
+                      onClick={() => excluir(g)}
                       className={`bg-red-600/5 hover:bg-red-600/15 p-1.5 rounded-lg border border-red-600/10  transition-colors duration-300 ease-in cursor-pointer`}
                       title={"Excluir"}
                     >
