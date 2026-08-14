@@ -134,7 +134,7 @@ export default function GastoFormModal({ open, onClose, onSuccess, gasto }) {
                 <Button type="button" variant={"secondary"} onClick={onClose} className="flex-1">
                     Cancelar
                 </Button>
-                <Button type="button" loading={isSubmitting} className="flex-1">
+                <Button type="submit" loading={isSubmitting} className="flex-1">
                     {isEdicao ? "Guardar" : "Registar"}
                 </Button>
             </div>
