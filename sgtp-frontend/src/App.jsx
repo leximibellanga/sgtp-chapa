@@ -13,6 +13,8 @@ import ListaRegistosPage from './pages/admin/registos/ListaRegistosPage'
 import ListaRegistosMotoristaPage from './pages/motorista/ListaRegistosMotoristaPage'
 import FormRegistoPage from './pages/motorista/FormRegistoPage'
 import ListaGastosPage from './pages/admin/gastos/ListaGastosPage'
+import DashboardPage from './pages/admin/DashboardPage'
+import RelatoriosPage from './pages/admin/relatorios/RelatorioPage'
 
 const App = () => {
     return (
@@ -24,12 +26,12 @@ const App = () => {
                     <Route element={<ProtectedRoute />}>
                         <Route element={<RoleRoute roleExigida={"ADMIN"} />}>
                             <Route element={<AdminLayout />}>
-                                <Route path="/admin/dashboard" element={<div>Dashboad (em construcao)</div>} />
+                                <Route path="/admin/dashboard" element={<DashboardPage />} />
                                 <Route path="/admin/carros" element={<ListaCarrosPage />} />
                                 <Route path="/admin/usuarios" element={<ListaUsuariosPage />} />
                                 <Route path="/admin/registos" element={<ListaRegistosPage />} />
                                 <Route path="/admin/gastos" element={<ListaGastosPage />} />
-                                <Route path="/admin/relatorios" element={<div>Relatorios (em construcao)</div>} />
+                                <Route path="/admin/relatorios" element={<RelatoriosPage />} />
                             </Route>
                         </Route>
 
