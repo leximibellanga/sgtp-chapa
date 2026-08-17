@@ -136,7 +136,11 @@ export default function ListaUsuariosPage() {
                     <TableTd text={usuario.nome} className={`font-medium`} />
                     <TableTd text={usuario.email} />
                     <TableTd text={usuario.telefone} />
-                    <TableTd text={usuario.role} className={`font-medium italic`} />
+                    <TableTd className={`font-medium`}>
+                      <Badge variant="neutro">
+                        {usuario.role}
+                      </Badge>
+                    </TableTd>
                     <TableTd>
                       <Badge variant={`${usuario.ativo ? "sucesso" : "erro"}`}>
                         {usuario.ativo ? "Ativo" : "Inativo"}
