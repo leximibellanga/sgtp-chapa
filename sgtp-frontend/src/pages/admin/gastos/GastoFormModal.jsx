@@ -19,7 +19,7 @@ const categorias = [
 
 const schema = z.object({
   carroId: z.string().min(1, "Escolhe o carro"),
-  categoria: z.enum(["MANUTENCAO", "COMBUSTIVEL", "DOCUMENTACAO", "OUTROS"], {
+  categoriaGasto: z.enum(["MANUTENCAO", "COMBUSTIVEL", "DOCUMENTACAO", "OUTROS"], {
     errorMap: () => ({ message: "Escolhe uma categoria" }),
   }),
   valor: z.coerce
@@ -42,7 +42,7 @@ export default function GastoFormModal({ open, onClose, onSuccess, gasto }) {
     resolver: zodResolver(schema),
     defaultValues: {
       carroId: "",
-      categoria: "",
+      categoriaGasto: "",
       valor: "",
       data: "",
       descricao: "",
@@ -57,14 +57,14 @@ export default function GastoFormModal({ open, onClose, onSuccess, gasto }) {
         gasto
           ? {
               carroId: String(gasto.carroId),
-              categoria: gasto.categoria,
+              categoriaGasto: gasto.categoriaGasto,
               valor: gasto.valor,
               data: gasto.data,
               descricao: gasto.descricao,
             }
           : {
               carroId: "",
-              categoria: "",
+              categoriaGasto: "",
               valor: "",
               data: new Date().toISOString().slice(0, 10),
               descricao: "",
@@ -100,7 +100,7 @@ export default function GastoFormModal({ open, onClose, onSuccess, gasto }) {
                 ))}
             </Select>
 
-            <Select label={"Categoria"} error={errors.categoria?.message} {...register("categoria")}>
+            <Select label={"Categoria"} error={errors.categoriaGasto?.message} {...register("categoriaGasto")}>
                 <option value="">Selecione a categoria</option>
                 {categorias.map((cat) => (
                     <option value={cat.value}>{cat.label}</option>
