@@ -48,7 +48,7 @@ export default function ListaGastosPage() {
     try {
       const { data } = await listarGastos({
         carro: filtroCarro || undefined,
-        categoriaGasto: filtroCategoriaGasto || undefined,
+        categoria: filtroCategoriaGasto || undefined,
       });
       setGastos(data);
     } catch (error) {
