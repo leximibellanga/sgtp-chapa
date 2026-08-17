@@ -41,14 +41,14 @@ export default function ListaGastosPage() {
   const [gastoEmEdicao, setGastoEmEdicao] = useState(null);
 
   const [filtroCarro, setFiltroCarro] = useState("");
-  const [filtroCategoria, setFiltroCategoria] = useState("");
+  const [filtroCategoriaGasto, setFiltroCategoriaGasto] = useState("");
 
   async function carregarGastos() {
     setCarregando(true);
     try {
       const { data } = await listarGastos({
         carro: filtroCarro || undefined,
-        categoria: filtroCategoria || undefined,
+        categoriaGasto: filtroCategoriaGasto || undefined,
       });
       setGastos(data);
     } catch (error) {
@@ -64,7 +64,7 @@ export default function ListaGastosPage() {
 
   useEffect(() => {
     carregarGastos();
-  }, [filtroCarro, filtroCategoria]);
+  }, [filtroCarro, filtroCategoriaGasto]);
 
   function abrirNovo() {
     setGastoEmEdicao(false);
@@ -116,8 +116,8 @@ export default function ListaGastosPage() {
           ))}
         </Select>
         <Select
-          value={filtroCategoria}
-          onChange={(e) => setFiltroCategoria(e.target.value)}
+          value={filtroCategoriaGasto}
+          onChange={(e) => setFiltroCategoriaGasto(e.target.value)}
         >
           <option value="">Todas as categorias</option>
           {Object.entries(categoriaLabel).map(([value, label]) => (
