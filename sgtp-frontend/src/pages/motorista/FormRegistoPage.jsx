@@ -69,14 +69,14 @@ export default function FormRegistoPage() {
 
   return (
     <div>
-      <h1 className="font-display text-xl font-bold text-verde-mata mb-1">
+      <h1 className="text-lg font-bold text-emerald-950">
         Registar valor
       </h1>
-      <p className="text-sm text-text-muted mb-6">
+      <p className="text-xs text-emerald-950/60 mb-6">
         Lanca o valor que entregaste hoje.
       </p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 bg-white border border-emerald-950/10 rounded-lg px-4 pt-5 pb-6">
         <Select
           label="Carro"
           error={errors.carroId?.message}
@@ -91,7 +91,7 @@ export default function FormRegistoPage() {
         </Select>
 
         <Select label="Tipo de dia" {...register("tipoDia")}>
-          {/* <option value="UTIL">{new Date().toLocaleDateString("pt-PT", {weekday: "long"})}</option> */}
+          <option value="UTIL">{new Date().toLocaleDateString("pt-PT", {weekday: "long"})}</option>
           <option value="UTIL">Segunda-feira</option>
           <option value="UTIL">Terca-feira</option>
           <option value="UTIL">Quarta-feira</option>
@@ -101,8 +101,8 @@ export default function FormRegistoPage() {
         </Select>
 
         {tipoDia === "UTIL" && (
-          <div className="bg-violeta/10 text-violeta text-sm rounded-lg px-4 py-3">
-            Meta do dia:{" "}
+          <div className="bg-emerald-700/10 text-emerald-700 text-xs rounded-lg px-4 py-3">
+            Receita padrao:{" "}
             <strong>{META_DIARIA.toLocaleString("pt-PT")} MT</strong>
           </div>
         )}
