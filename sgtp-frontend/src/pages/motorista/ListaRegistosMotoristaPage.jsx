@@ -134,7 +134,7 @@ export default function ListaRegistosMotoristaPage() {
                           <p className="mb-1 text-xs font-bold uppercase text-amber-700">
                             Justificativa
                           </p>
-                          <p className="text-sm text-amber-950/75">
+                          <p className="text-xs text-amber-950/75">
                             {r.justificativa}
                           </p>
                         </div>
@@ -174,38 +174,6 @@ export default function ListaRegistosMotoristaPage() {
                   </div>
                 </div>
               </div>
-
-              // <div
-              //   key={r.id}
-              //   className="justify-between bg-white border border-emerald-950/20 rounded-xl p-4"
-              // >
-              //   <div className="flex items-center justify-between mb-1">
-              //     <p className="font-display text-lg font-bold text-emerald-950">
-              //       4{Number(r.valorEntregue).toFixed(2)} MT
-              //     </p>
-              //     {metaBatida !== null && (
-              //       <Badge variant={metaBatida ? "sucesso" : "erro"}>
-              //         {metaBatida ? "Meta batida" : "Deficit"}
-              //       </Badge>
-              //     )}
-              //   </div>
-              //   <p className="text-sm text-emerald-950 font-medium">
-              //     {r.carroMatricula}
-              //   </p>
-              //   <span className="text-sm font-normal text-emerald-950">
-              //     {new Date(r.data).toLocaleDateString("pt-PT", {
-              //       weekday: "long",
-              //       day: "2-digit",
-              //       month: "short",
-              //       year: "numeric",
-              //     })}
-              //   </span>
-              //   {r.justificativa && (
-              //     <p className="text-xs text-emerald-950/60 mt-2 italic">
-              //       "{r.justificativa}"
-              //     </p>
-              //   )}
-              // </div>
             );
           })}
         </div>
