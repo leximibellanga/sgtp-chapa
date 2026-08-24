@@ -7,7 +7,6 @@ import {
   buscarResumoMensal,
   buscarEvolucaoMensal,
 } from "../../api/dashboardApi";
-import GraficoMensal from "../../components/charts/GraficoMensal";
 
 const MESES = [
   "Janeiro",
@@ -22,29 +21,31 @@ const MESES = [
   "Outubro",
   "Novembro",
   "Dezembro",
-]
+];
 
 function StatCard({ icon: Icon, label, valor, destaque }) {
   return (
     <div
-      className={`rounded-xl p-5 ${
+      className={`h-30 flex flex-col justify-between rounded-xl p-5 hover:-translate-1.25 cursor-pointer transition-all duration-300 ${
         destaque
           ? "bg-emerald-950 text-white"
-          : "border border-emerald-950/30 text-emerald-950"
+          : "border border-emerald-950/10 shadow shadow-emerald-100/20 bg-white text-emerald-950"
       }`}
     >
       <div className="flex items-center justify-between mb-3">
         <span
-          className={`text-xs ${destaque ? "text-white" : "text-text-muted"}`}
+          className={`text-xs ${destaque ? "text-white" : "text-emerald-950/70"}`}
         >
           {label}
         </span>
-        <Icon
-          size={18}
-          className={destaque ? "text-white" : "text-text-muted"}
-        />
+        <div className={`p-2 rounded-lg bg-emerald-950/10 ${destaque ? "bg-white/10" : ""}`}>
+          <Icon
+            size={18}
+            className={destaque ? "text-white" : "text-emerald-950/70 "}
+          />
+        </div>
       </div>
-      <p className="font-display text-2xl font-bold">
+      <p className="text-2xl font-bold">
         {typeof valor === "number"
           ? `${valor.toLocaleString("pt-PT")} MT`
           : valor}
@@ -88,7 +89,12 @@ export default function DashboardPage() {
     <div>
       <h1 className="text-xl font-bold text-emerald-950">Dashboard</h1>
       <p className="text-sm text-emerald-950/60 mb-6">
-        Resumo mensal referente ao mes de <strong>{MESES[Number((resumo?.mes).slice(5, 7) - 1)]} de {(resumo?.mes).slice(0, 4)}</strong>.
+        Resumo mensal referente ao mes de{" "}
+        <strong>
+          {MESES[Number((resumo?.mes).slice(5, 7) - 1)]} de{" "}
+          {(resumo?.mes).slice(0, 4)}
+        </strong>
+        .
       </p>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <StatCard
@@ -106,10 +112,18 @@ export default function DashboardPage() {
         <StatCard
           icon={Car}
           label="Carros ativos"
-          valor={resumo.CarrosAtivos}
+          valor={`${resumo.CarrosAtivos}`}
         />
       </div>
 
+      <div className="border border-emerald-950/30 rounded-xl p-5">
+        <h2 className="font-display text-base font-bold text-emerald-950 mb-4">
+          Evolucao dos ultimos 6 meses
+        </h2>
+        <GraficoEvolucaoMensal dados={evolucao} />
+
+        {/* <GraficoMensal dados={evolucao} /> */}
+      </div>
     </div>
   );
 }
