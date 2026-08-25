@@ -15,6 +15,7 @@ import FormRegistoPage from './pages/motorista/FormRegistoPage'
 import ListaGastosPage from './pages/admin/gastos/ListaGastosPage'
 import DashboardPage from './pages/admin/DashboardPage'
 import RelatoriosPage from './pages/admin/relatorios/RelatorioPage'
+import DashboardMotoristaPage from './pages/motorista/DashboardMotoristaPage'
 
 const App = () => {
     return (
@@ -37,7 +38,7 @@ const App = () => {
 
                         <Route element={<RoleRoute roleExigida={"MOTORISTA"} />}>
                             <Route element={<MotoristaLayout />}>
-                                <Route path="/motorista/dashboard" element={<div>Dashboad (em construcao)</div>} />
+                                <Route path="/motorista/dashboard" element={<DashboardMotoristaPage />} />
                                 <Route path="/motorista/registos" element={<ListaRegistosMotoristaPage />} />
                                 <Route path="/motorista/registos/novo" element={<FormRegistoPage />} />
                             </Route>
