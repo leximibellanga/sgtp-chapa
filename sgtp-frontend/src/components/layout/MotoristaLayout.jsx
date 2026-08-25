@@ -26,7 +26,10 @@ export default function MotoristaLayout() {
             <span className="bg-emerald-100 rounded-lg p-1">
               <CarFront size={18} color="#001f18" fill="#001f18" />
             </span>
-            <h1 className="font-extrabold ">SGTP</h1>
+            <h1 className="flex flex-col font-bold gap-0">
+              <span className="text-xs">SGTP</span>
+              <span className="text-[10px] font-light">Sistema de Chapa</span>
+            </h1>
           </div>
         </div>
         <div>
