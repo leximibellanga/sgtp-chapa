@@ -3,6 +3,7 @@ import {
   BarChart3,
   BusFront,
   Car,
+  CarFront,
   ClipboardList,
   LayoutDashboard,
   LogOut,
@@ -73,8 +74,8 @@ export default function Sidebar() {
       >
         {isOpen && (
           <div className="flex items-center ml-1">
-            <span className="bg-[#d8f3dc] text-emerald-950 rounded-lg grid place-items-center p-1.25 shadow shadow-emerald-400">
-              <BusFront size={24} />
+            <span className="bg-[#d8f3dc] text-emerald-950 rounded-lg grid place-items-center p-1.25 shadow ">
+              <CarFront size={18} color="#001f18" fill="#001f18" />
             </span>
             <h1 className="flex flex-col pl-3 font-bold gap-0">
               <span className="text-sm">SGTP</span>
