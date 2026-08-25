@@ -38,7 +38,9 @@ function StatCard({ icon: Icon, label, valor, destaque }) {
         >
           {label}
         </span>
-        <div className={`p-2 rounded-lg bg-emerald-950/10 ${destaque ? "bg-white/10" : ""}`}>
+        <div
+          className={`p-2 rounded-lg bg-emerald-950/10 ${destaque ? "bg-white/10" : ""}`}
+        >
           <Icon
             size={18}
             className={destaque ? "text-white" : "text-emerald-950/70 "}
@@ -107,12 +109,19 @@ export default function DashboardPage() {
           icon={TrendingDown}
           label="Gastos"
           valor={Number(resumo.gastoTotal)}
+          destaque
         />
-        <StatCard icon={Wallet} label="Saldo" valor={Number(resumo.saldo)} />
+        <StatCard
+          icon={Wallet}
+          label="Saldo"
+          valor={Number(resumo.saldo)}
+          destaque
+        />
         <StatCard
           icon={Car}
           label="Carros ativos"
           valor={`${resumo.CarrosAtivos}`}
+          destaque
         />
       </div>
 
