@@ -1,9 +1,9 @@
 import axiosClient from "./axiosClient";
 
 // listar gastos com filtros:
-    // - carro
-    // - categoria
-    // - por data: data de inicio ate data fim
+// - carro
+// - categoria
+// - por data: data de inicio ate data fim
 export function listarGastos(filtros = {}) {
   return axiosClient.get("/gastos", { params: filtros });
 }
@@ -27,4 +27,3 @@ export function atualizarGasto(id, dados) {
 export function removerGasto(id) {
   return axiosClient.delete(`/gastos/${id}`);
 }
-

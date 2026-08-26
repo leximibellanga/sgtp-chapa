@@ -18,16 +18,15 @@ export function criarUsuario(dados) {
 
 // Atualizar usuario pelo ID - PUT
 export function atualizarUsuarioPeloId(id, dados) {
-    return axiosClient.put(`/usuarios/${id}`, dados)
+  return axiosClient.put(`/usuarios/${id}`, dados);
 }
 
 // Aativar usuario pelo ID - PATCH
 export function ativarUsuarioPeloId(id) {
-    return axiosClient.patch(`/usuarios/${id}/ativar`)
+  return axiosClient.patch(`/usuarios/${id}/ativar`);
 }
 
 // Desativar usuario pelo ID - PATCH
 export function desativarUsuarioPeloId(id) {
-    return axiosClient.patch(`/usuarios/${id}/desativar`)
+  return axiosClient.patch(`/usuarios/${id}/desativar`);
 }
-
