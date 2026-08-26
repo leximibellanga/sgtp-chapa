@@ -69,14 +69,15 @@ export default function FormRegistoPage() {
 
   return (
     <div>
-      <h1 className="text-lg font-bold text-emerald-950">
-        Registar valor
-      </h1>
+      <h1 className="text-lg font-bold text-emerald-950">Registar valor</h1>
       <p className="text-xs text-emerald-950/60 mb-6">
         Lanca o valor que entregaste hoje.
       </p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 bg-white border border-emerald-950/10 rounded-lg px-4 pt-5 pb-6">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-4 bg-white border border-emerald-950/10 rounded-lg px-4 pt-5 pb-6"
+      >
         <Select
           label="Carro"
           error={errors.carroId?.message}
@@ -91,7 +92,9 @@ export default function FormRegistoPage() {
         </Select>
 
         <Select label="Tipo de dia" {...register("tipoDia")}>
-          <option value="UTIL">{new Date().toLocaleDateString("pt-PT", {weekday: "long"})}</option>
+          <option value="UTIL">
+            {new Date().toLocaleDateString("pt-PT", { weekday: "long" })}
+          </option>
           <option value="UTIL">Segunda-feira</option>
           <option value="UTIL">Terca-feira</option>
           <option value="UTIL">Quarta-feira</option>
