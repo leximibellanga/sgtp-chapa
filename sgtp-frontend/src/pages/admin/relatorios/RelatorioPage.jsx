@@ -47,7 +47,9 @@ export default function RelatoriosPage() {
   return (
     <div>
       {/* <Breadcrumb items={[{ label: "Relatorios" }]} /> */}
-      <h1 className="font-display text-2xl font-bold text-emerald-950 mb-6">Relatorios</h1>
+      <h1 className="font-display text-2xl font-bold text-emerald-950 mb-6">
+        Relatorios
+      </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <div className="border border-border rounded-xl p-5">
@@ -71,8 +73,13 @@ export default function RelatoriosPage() {
         </h2>
         <div className="space-y-3">
           {comparativo.map((c) => (
-            <div key={c.carroId} className="flex items-center justify-between text-sm">
-              <span className="font-medium text-verde-mata w-32">{c.matricula}</span>
+            <div
+              key={c.carroId}
+              className="flex items-center justify-between text-sm"
+            >
+              <span className="font-medium text-verde-mata w-32">
+                {c.matricula}
+              </span>
               <div className="flex-1 mx-4 bg-bg-neutral rounded-full h-2 overflow-hidden">
                 <div
                   className="h-full bg-verde-mata"

@@ -147,9 +147,7 @@ export default function ListaRegistosPage() {
                     {r.tipoDia === "UTIL" ? "Dia util" : "Domingo"}
                   </Badge>
                 </TableTd>
-                <TableTd>
-                  {Number(r.valorEntregue).toFixed(2)} MT
-                </TableTd>
+                <TableTd>{Number(r.valorEntregue).toFixed(2)} MT</TableTd>
                 <TableTd>
                   {metaBatida(r) === null ? (
                     <span className="text-text-muted">—</span>

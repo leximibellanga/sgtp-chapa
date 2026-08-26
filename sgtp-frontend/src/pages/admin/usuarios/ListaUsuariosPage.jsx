@@ -137,9 +137,7 @@ export default function ListaUsuariosPage() {
                     <TableTd text={usuario.email} />
                     <TableTd text={usuario.telefone} />
                     <TableTd className={`font-medium`}>
-                      <Badge variant="neutro">
-                        {usuario.role}
-                      </Badge>
+                      <Badge variant="neutro">{usuario.role}</Badge>
                     </TableTd>
                     <TableTd>
                       <Badge variant={`${usuario.ativo ? "sucesso" : "erro"}`}>

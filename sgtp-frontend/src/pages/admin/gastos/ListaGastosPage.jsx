@@ -93,14 +93,14 @@ export default function ListaGastosPage() {
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div className="flex flex-col">
-        <h1 className="font-bold text-2xl text-emerald-950">Gastos</h1>
-        <p className="text-emerald-950/60 text-sm">
-          Listagem de todos gastos obtidos na empresa.
-        </p>
-      </div>
-      <Button onClick={abrirNovo}>
-        <Plus size={16}/> Novo gasto
-      </Button>
+          <h1 className="font-bold text-2xl text-emerald-950">Gastos</h1>
+          <p className="text-emerald-950/60 text-sm">
+            Listagem de todos gastos obtidos na empresa.
+          </p>
+        </div>
+        <Button onClick={abrirNovo}>
+          <Plus size={16} /> Novo gasto
+        </Button>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -158,9 +158,7 @@ export default function ListaGastosPage() {
 
             {gastos.map((g) => (
               <TableRow>
-                <TableTd>
-                    {formatarDate(g.data)}
-                </TableTd>
+                <TableTd>{formatarDate(g.data)}</TableTd>
                 <TableTd text={g.carroMatricula} />
                 <TableTd className={`font-medium`}>
                   {Number(g.valor).toFixed(2)} MT
