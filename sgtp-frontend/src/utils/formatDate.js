@@ -33,5 +33,3 @@ export default function formatarDate(data) {
   const dataFormatada = `${diaSemanaString[diaSemana]}, ${dia} ${mes} / ${ano}`;
   return dataFormatada;
 }
-
-
