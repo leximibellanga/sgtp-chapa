@@ -38,7 +38,7 @@ const Input = forwardRef(
         {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
       </div>
     );
-  }
+  },
 );
 
 Input.displayName = "Input";

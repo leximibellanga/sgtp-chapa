@@ -3,7 +3,8 @@ import { forwardRef } from "react";
 
 const variantes = {
   primary: "bg-emerald-950/95 text-emerald-100 hover:bg-emerald-950",
-  secondary: "bg-white text-green-700 border border-green-700 hover:bg-bg-neutral",
+  secondary:
+    "bg-white text-green-700 border border-green-700 hover:bg-bg-neutral",
   perigo: "bg-[crimson] text-white hover:opacity-90",
   ghost: "text-verde-mata hover:bg-verde-mata/10",
 };
@@ -26,7 +27,7 @@ const Button = forwardRef(
       className = "",
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <button
@@ -40,7 +41,7 @@ const Button = forwardRef(
         {children}
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";

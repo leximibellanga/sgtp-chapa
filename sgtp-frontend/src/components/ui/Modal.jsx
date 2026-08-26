@@ -30,7 +30,9 @@ export default function Modal({ open, onClose, title, children }) {
 
       <div className="relative bg-white rounded-2xl w-full max-w-md p-6 shadow-xl">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="font-display text-lg font-bold text-verde-mata">{title}</h2>
+          <h2 className="font-display text-lg font-bold text-verde-mata">
+            {title}
+          </h2>
           <button
             onClick={onClose}
             className="text-text-muted hover:text-verde-mata p-1 rounded-full hover:bg-bg-neutral cursor-pointer"
@@ -42,7 +44,6 @@ export default function Modal({ open, onClose, title, children }) {
         {children}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }
-

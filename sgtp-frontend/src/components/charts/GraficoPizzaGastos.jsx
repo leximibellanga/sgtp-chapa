@@ -1,4 +1,11 @@
-import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 const CORES_CATEGORIA = {
   MANUTENCAO: "#FF4696",
@@ -23,7 +30,9 @@ function TooltipCustom({ active, payload }) {
       <p className="font-medium" style={{ color: item.payload.fill }}>
         {item.name}
       </p>
-      <p className="text-verde-mata">{Number(item.value).toLocaleString("pt-PT")} MT</p>
+      <p className="text-verde-mata">
+        {Number(item.value).toLocaleString("pt-PT")} MT
+      </p>
     </div>
   );
 }
@@ -57,7 +66,10 @@ export default function GraficoPizzaGastos({ dados }) {
           paddingAngle={1}
         >
           {dadosFormatados.map((entry) => (
-            <Cell key={entry.categoria} fill={CORES_CATEGORIA[entry.categoria] || "#6B7568"} />
+            <Cell
+              key={entry.categoria}
+              fill={CORES_CATEGORIA[entry.categoria] || "#6B7568"}
+            />
           ))}
         </Pie>
         <Tooltip content={<TooltipCustom />} />

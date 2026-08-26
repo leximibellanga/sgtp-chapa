@@ -27,7 +27,10 @@ function TooltipCustom({ active, payload, label }) {
 export default function GraficoEvolucaoMensal({ dados }) {
   return (
     <ResponsiveContainer width="100%" height={280}>
-      <LineChart data={dados} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+      <LineChart
+        data={dados}
+        margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+      >
         <CartesianGrid strokeDasharray="3 3" stroke="#E5E1D6" />
         <XAxis dataKey="mes" tick={{ fontSize: 12, fill: "#6B7568" }} />
         <YAxis tick={{ fontSize: 12, fill: "#6B7568" }} />

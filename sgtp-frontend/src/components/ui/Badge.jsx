@@ -1,4 +1,3 @@
-
 const variantes = {
   sucesso: "bg-green-700/10 text-green-700",
   erro: "bg-red-700/10 text-red-700",
