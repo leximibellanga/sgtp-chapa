@@ -22,4 +22,8 @@ public interface RegistoDiarioRepository extends JpaRepository<RegistoDiario, Lo
 
     // Retorna o registo do usuario_id na data estabelecida no parametro
     Optional<RegistoDiario> findByUsuarioIdAndData(Long usuario_id, LocalDate data);
+
+
+    // Retorna Lista de registos diarios ordenados pela data [presente - passado]
+    List<RegistoDiario> findByOrderByDataDesc();
 }

@@ -58,7 +58,7 @@ public class RegistoDiarioService {
     // ================= CRUD ===============
     // listar todos registos
     public List<RegistoDiarioResponse> listarRegistos(Long carroId, Long usuarioId, TipoDia tipoDia) {
-        List<RegistoDiario> registos = registoDiarioRepository.findAll();
+        List<RegistoDiario> registos = registoDiarioRepository.findByOrderByDataDesc();
 
         return registos.stream()
                 .filter(r -> carroId == null || r.getCarro().getId().equals(carroId))
