@@ -92,7 +92,7 @@ export default function DashboardPage() {
       <h1 className="text-xl font-bold text-emerald-950">Dashboard</h1>
       <p className="text-sm text-emerald-950/60 mb-6">
         Resumo mensal referente ao mes de{" "}
-        <strong>
+        <strong className="text-black/70">
           {MESES[Number((resumo?.mes).slice(5, 7) - 1)]} de{" "}
           {(resumo?.mes).slice(0, 4)}
         </strong>
