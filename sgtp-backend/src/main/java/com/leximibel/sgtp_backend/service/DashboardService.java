@@ -59,7 +59,7 @@ public class DashboardService {
         LocalDate fim = referencia.atEndOfMonth();                      // Pega o ultimo dia do mes (28/29/30/31)
 
         BigDecimal receitaTotal = somarValorEntregue(registoRepository.findByDataBetween(inicio, fim));
-        BigDecimal gastoTotal = somarValorGasto(gastoRepository.findByDataBetween(inicio, fim));
+        BigDecimal gastoTotal = somarValorGasto(gastoRepository.findByDataBetweenOrderByDataDesc(inicio, fim));
         int carrosAtivos = carroRepository.findByAtivoTrue().size();
 
         return new ResumoMensalResponse(
@@ -83,7 +83,7 @@ public class DashboardService {
                     LocalDate fim = mes.atEndOfMonth();
 
                     BigDecimal receita = somarValorEntregue(registoRepository.findByDataBetween(inicio, fim));
-                    BigDecimal gasto = somarValorGasto(gastoRepository.findByDataBetween(inicio, fim));
+                    BigDecimal gasto = somarValorGasto(gastoRepository.findByDataBetweenOrderByDataDesc(inicio, fim));
                     BigDecimal saldo = receita.subtract(gasto);
                     String label = mes.getMonth().getDisplayName(TextStyle.SHORT, new Locale("pt"))+ "/" + mes.getYear();
 
@@ -99,7 +99,7 @@ public class DashboardService {
     // ================== 3. GASTOS POR CATEGORIA =================
     public List<GastoPorCategoriaResponse> gastoPorCategorias(YearMonth mes) {
         List<Gasto> gastos = (mes != null)
-                ? gastoRepository.findByDataBetween(mes.atDay(1), mes.atEndOfMonth())
+                ? gastoRepository.findByDataBetweenOrderByDataDesc(mes.atDay(1), mes.atEndOfMonth())
                 : gastoRepository.findAll();
 
         Map<CategoriaGasto, BigDecimal> totaisPorCategoria = gastos.stream().collect(Collectors.groupingBy(
@@ -128,7 +128,7 @@ public class DashboardService {
                             .toList()
             );
             BigDecimal gasto = somarValorGasto(
-                    gastoRepository.findByDataBetween(inicio, fim).stream()
+                    gastoRepository.findByDataBetweenOrderByDataDesc(inicio, fim).stream()
                             .filter(g -> g.getCarro().getId().equals(carro.getId()))
                             .toList()
             );
