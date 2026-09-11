@@ -21,6 +21,7 @@ import Badge from "../../../components/ui/Badge";
 import CarroFormModal from "./CarroFormModal";
 import formatarData from "../../../utils/formatDate";
 import Breadcrump from "../../../components/ui/Breadcrump";
+import Select from "../../../components/ui/Select";
 
 export default function ListaCarrosPage() {
   const [carros, setCarros] = useState([]);
@@ -102,15 +103,15 @@ export default function ListaCarrosPage() {
         <div className="flex flex-col gap-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <select
+              {/* filtro de carro */}
+              <Select
                 value={filtroStatus}
                 onChange={(e) => setFiltroStatus(e.target.value)}
-                className="w-40 bg-emerald-950/5 px-2 py-2 text-sm text-emerald-950/80 rounded-lg outline-none border border-emerald-950/20 cursor-pointer hover:bg-emerald-950/10 transition-colors duration-300"
+                className="w-64"
               >
-                <option value="">Todos carros</option>
+                <option value="">Todos os carros</option>
                 <option value="true">Apenas ativos</option>
-                {/* <option value="false">Apenas inativos</option> */}
-              </select>
+              </Select>
               <Button onClick={() => carregarCarros}>
                 <Filter size={13} />
               </Button>
