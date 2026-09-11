@@ -45,15 +45,15 @@ public class GastoService {
         List<Gasto> gastos;
 
         if (carroId != null && inicio != null & fim !=null) {
-            gastos = gastoRepository.findByCarroIdAndDataBetween(carroId, inicio, fim);
+            gastos = gastoRepository.findByCarroIdAndDataBetweenOrderByDataDesc(carroId, inicio, fim);
         } else if (inicio != null && fim != null) {
-            gastos = gastoRepository.findByDataBetween(inicio, fim);
+            gastos = gastoRepository.findByDataBetweenOrderByDataDesc(inicio, fim);
         } else if (carroId != null) {
-            gastos = gastoRepository.findByCarroId(carroId);
+            gastos = gastoRepository.findByCarroIdOrderByDataDesc(carroId);
         } else if (categoria != null) {
-            gastos = gastoRepository.findByCategoria(categoria);
+            gastos = gastoRepository.findByCategoriaOrderByDataDesc(categoria);
         } else {
-            gastos = gastoRepository.findAll();
+            gastos = gastoRepository.findByOrderByDataDesc();
         }
 
         return gastos.stream()
