@@ -9,15 +9,17 @@ import java.util.List;
 
 public interface GastoRepository extends JpaRepository<Gasto, Long> {
     // Listar gastos com filtro de carro, EX: todos gastos do carro com ID=2
-    List<Gasto> findByCarroId(Long carro_id);
+    List<Gasto> findByCarroIdOrderByDataDesc(Long carro_id);
 
     // Listar gastos em categorias
-    List<Gasto> findByCategoria(CategoriaGasto categoriaGasto);
+    List<Gasto> findByCategoriaOrderByDataDesc(CategoriaGasto categoriaGasto);
 
     // Lista de gastos de um certo periodo de tempo, de inicio ate fim | EX: inicio: 2026-07-20 ate fim: 2026-07-22
-    List<Gasto> findByDataBetween(LocalDate inicio, LocalDate fim);
+    List<Gasto> findByDataBetweenOrderByDataDesc(LocalDate inicio, LocalDate fim);
 
     // Lista de gastos de um carro com o ID, em certo periodo de tempo, de inicio ate fim. | EX: carro_id: 1, inicio: 2026-07-20 ate fim: 2026-07-22
-    List<Gasto> findByCarroIdAndDataBetween(Long carro_id, LocalDate inicio, LocalDate fim);
+    List<Gasto> findByCarroIdAndDataBetweenOrderByDataDesc(Long carro_id, LocalDate inicio, LocalDate fim);
 
+    // Listar os gastos comecando da data atual, ou seja, ordernar pela data de criacao
+    List<Gasto> findByOrderByDataDesc();
 }
