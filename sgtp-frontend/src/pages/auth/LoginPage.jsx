@@ -4,6 +4,7 @@ import { useAuth } from "../../hooks/useAuth";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import imgUrl from "../../assets/images/img-login.png";
+import { MessageSquareWarning } from "lucide-react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -55,8 +56,8 @@ export default function LoginPage() {
 
           <div>
             {erro && (
-              <div className="bg-red-50 text-red-800 text-sm border border-red-600 rounded-lg px-4 py-3 mb-2">
-                {erro}
+              <div className="flex items-center gap-1.75 bg-red-50 text-red-600 text-sm border border-red-600/30 rounded-lg px-4 py-3 mb-2">
+                <MessageSquareWarning size={16} /> {erro}
               </div>
             )}
 
