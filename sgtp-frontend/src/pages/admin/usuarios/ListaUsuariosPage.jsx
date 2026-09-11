@@ -20,6 +20,7 @@ import formatarData from "../../../utils/formatDate";
 import { Filter, PenBoxIcon, Plus, Power } from "lucide-react";
 import Button from "../../../components/ui/Button";
 import UsuarioFormModal from "./FormUsuariosPage";
+import Select from "../../../components/ui/Select";
 
 export default function ListaUsuariosPage() {
   const [usuarios, setUsuarios] = useState([]);
@@ -100,15 +101,16 @@ export default function ListaUsuariosPage() {
         <div className="flex flex-col gap-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <select
+              {/* filtro de carro */}
+              <Select
                 value={filtroRole}
                 onChange={(e) => setFiltroRole(e.target.value)}
-                className="w-50 bg-emerald-950/5 px-2 py-2 text-sm text-emerald-950/80 rounded-lg outline-none border border-emerald-950/20 cursor-pointer hover:bg-emerald-950/10 transition-colors duration-300"
+                className="w-64"
               >
                 <option value="MOTORISTA">Motoristas</option>
                 <option value="ADMIN">Administradores</option>
                 <option value="">Todos</option>
-              </select>
+              </Select>
               <Button onClick={() => carregarUsuarios()}>
                 <Filter size={13} />
               </Button>
