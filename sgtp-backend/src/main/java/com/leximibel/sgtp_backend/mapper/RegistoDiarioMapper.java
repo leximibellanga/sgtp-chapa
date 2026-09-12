@@ -1,8 +1,7 @@
 package com.leximibel.sgtp_backend.mapper;
 
-import com.leximibel.sgtp_backend.dto.request.registo_diario.RegistoDiarioRequest;
 import com.leximibel.sgtp_backend.dto.response.registo_diario.RegistoDiarioResponse;
-import com.leximibel.sgtp_backend.model.RegistoDiario;
+import com.leximibel.sgtp_backend.entity.RegistoDiario;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -3,7 +3,7 @@ package com.leximibel.sgtp_backend.controller;
 import com.leximibel.sgtp_backend.dto.request.usuarios.UsuarioRequest;
 import com.leximibel.sgtp_backend.dto.request.usuarios.UsuarioUpdateRequest;
 import com.leximibel.sgtp_backend.dto.response.usuarios.UsuarioResponse;
-import com.leximibel.sgtp_backend.model.enums.Role;
+import com.leximibel.sgtp_backend.entity.enums.Role;
 import com.leximibel.sgtp_backend.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

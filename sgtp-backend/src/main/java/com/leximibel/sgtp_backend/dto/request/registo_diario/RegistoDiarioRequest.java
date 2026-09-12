@@ -1,6 +1,6 @@
 package com.leximibel.sgtp_backend.dto.request.registo_diario;
 
-import com.leximibel.sgtp_backend.model.enums.TipoDia;
+import com.leximibel.sgtp_backend.entity.enums.TipoDia;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 

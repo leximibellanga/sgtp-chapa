@@ -2,7 +2,7 @@ package com.leximibel.sgtp_backend.controller;
 
 import com.leximibel.sgtp_backend.dto.request.registo_diario.RegistoDiarioRequest;
 import com.leximibel.sgtp_backend.dto.response.registo_diario.RegistoDiarioResponse;
-import com.leximibel.sgtp_backend.model.enums.TipoDia;
+import com.leximibel.sgtp_backend.entity.enums.TipoDia;
 import com.leximibel.sgtp_backend.service.RegistoDiarioService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

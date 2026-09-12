@@ -5,7 +5,7 @@ import com.leximibel.sgtp_backend.dto.response.carro.CarroResponse;
 import com.leximibel.sgtp_backend.exception.RegraDeNegocioException;
 import com.leximibel.sgtp_backend.exception.ResourceNotFoundException;
 import com.leximibel.sgtp_backend.mapper.CarroMapper;
-import com.leximibel.sgtp_backend.model.Carro;
+import com.leximibel.sgtp_backend.entity.Carro;
 import com.leximibel.sgtp_backend.repository.CarroRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.leximibel.sgtp_backend.repository;
 
-import com.leximibel.sgtp_backend.model.Usuario;
-import com.leximibel.sgtp_backend.model.enums.Role;
+import com.leximibel.sgtp_backend.entity.Usuario;
+import com.leximibel.sgtp_backend.entity.enums.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

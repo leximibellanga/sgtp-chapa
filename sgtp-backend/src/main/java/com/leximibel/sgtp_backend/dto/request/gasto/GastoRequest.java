@@ -1,6 +1,6 @@
 package com.leximibel.sgtp_backend.dto.request.gasto;
 
-import com.leximibel.sgtp_backend.model.enums.CategoriaGasto;
+import com.leximibel.sgtp_backend.entity.enums.CategoriaGasto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;

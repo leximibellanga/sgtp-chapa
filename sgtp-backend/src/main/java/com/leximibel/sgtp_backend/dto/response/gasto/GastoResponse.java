@@ -1,6 +1,6 @@
 package com.leximibel.sgtp_backend.dto.response.gasto;
 
-import com.leximibel.sgtp_backend.model.enums.CategoriaGasto;
+import com.leximibel.sgtp_backend.entity.enums.CategoriaGasto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

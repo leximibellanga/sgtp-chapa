@@ -1,7 +1,7 @@
 package com.leximibel.sgtp_backend.mapper;
 
 import com.leximibel.sgtp_backend.dto.response.gasto.GastoResponse;
-import com.leximibel.sgtp_backend.model.Gasto;
+import com.leximibel.sgtp_backend.entity.Gasto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

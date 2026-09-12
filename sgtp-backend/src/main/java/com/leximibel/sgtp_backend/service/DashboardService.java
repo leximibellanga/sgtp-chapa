@@ -4,10 +4,10 @@ import com.leximibel.sgtp_backend.dto.response.dashboard.ComparativoCarroRespons
 import com.leximibel.sgtp_backend.dto.response.dashboard.EvolucaoMensalResponse;
 import com.leximibel.sgtp_backend.dto.response.dashboard.GastoPorCategoriaResponse;
 import com.leximibel.sgtp_backend.dto.response.dashboard.ResumoMensalResponse;
-import com.leximibel.sgtp_backend.model.Carro;
-import com.leximibel.sgtp_backend.model.Gasto;
-import com.leximibel.sgtp_backend.model.RegistoDiario;
-import com.leximibel.sgtp_backend.model.enums.CategoriaGasto;
+import com.leximibel.sgtp_backend.entity.Carro;
+import com.leximibel.sgtp_backend.entity.Gasto;
+import com.leximibel.sgtp_backend.entity.RegistoDiario;
+import com.leximibel.sgtp_backend.entity.enums.CategoriaGasto;
 import com.leximibel.sgtp_backend.repository.CarroRepository;
 import com.leximibel.sgtp_backend.repository.GastoRepository;
 import com.leximibel.sgtp_backend.repository.RegistoDiarioRepository;

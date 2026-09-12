@@ -1,6 +1,6 @@
 package com.leximibel.sgtp_backend.repository;
 
-import com.leximibel.sgtp_backend.model.Carro;
+import com.leximibel.sgtp_backend.entity.Carro;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

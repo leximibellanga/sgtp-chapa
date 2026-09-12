@@ -1,7 +1,7 @@
 package com.leximibel.sgtp_backend.mapper;
 
 import com.leximibel.sgtp_backend.dto.response.carro.CarroResponse;
-import com.leximibel.sgtp_backend.model.Carro;
+import com.leximibel.sgtp_backend.entity.Carro;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
