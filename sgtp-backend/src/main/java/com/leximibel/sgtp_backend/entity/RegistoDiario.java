@@ -1,6 +1,6 @@
-package com.leximibel.sgtp_backend.model;
+package com.leximibel.sgtp_backend.entity;
 
-import com.leximibel.sgtp_backend.model.enums.TipoDia;
+import com.leximibel.sgtp_backend.entity.enums.TipoDia;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

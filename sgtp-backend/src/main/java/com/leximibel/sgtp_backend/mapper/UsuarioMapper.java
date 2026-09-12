@@ -1,7 +1,7 @@
 package com.leximibel.sgtp_backend.mapper;
 
 import com.leximibel.sgtp_backend.dto.response.usuarios.UsuarioResponse;
-import com.leximibel.sgtp_backend.model.Usuario;
+import com.leximibel.sgtp_backend.entity.Usuario;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

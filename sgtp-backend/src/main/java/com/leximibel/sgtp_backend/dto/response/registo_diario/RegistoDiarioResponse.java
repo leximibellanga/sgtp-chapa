@@ -1,6 +1,6 @@
 package com.leximibel.sgtp_backend.dto.response.registo_diario;
 
-import com.leximibel.sgtp_backend.model.enums.TipoDia;
+import com.leximibel.sgtp_backend.entity.enums.TipoDia;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

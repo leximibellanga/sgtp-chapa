@@ -2,7 +2,7 @@ package com.leximibel.sgtp_backend.service;
 
 import com.leximibel.sgtp_backend.dto.request.auth.LoginRequest;
 import com.leximibel.sgtp_backend.dto.response.auth.AuthResponse;
-import com.leximibel.sgtp_backend.model.Usuario;
+import com.leximibel.sgtp_backend.entity.Usuario;
 import com.leximibel.sgtp_backend.repository.UsuarioRepository;
 import com.leximibel.sgtp_backend.security.JwtService;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package com.leximibel.sgtp_backend.repository;
 
-import com.leximibel.sgtp_backend.model.RegistoDiario;
+import com.leximibel.sgtp_backend.entity.RegistoDiario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;

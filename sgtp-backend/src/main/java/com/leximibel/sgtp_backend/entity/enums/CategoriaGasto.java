@@ -1,4 +1,4 @@
-package com.leximibel.sgtp_backend.model.enums;
+package com.leximibel.sgtp_backend.entity.enums;
 
 public enum CategoriaGasto {
     MANUTENCAO,

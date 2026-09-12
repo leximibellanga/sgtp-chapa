@@ -2,7 +2,7 @@ package com.leximibel.sgtp_backend.controller;
 
 import com.leximibel.sgtp_backend.dto.request.gasto.GastoRequest;
 import com.leximibel.sgtp_backend.dto.response.gasto.GastoResponse;
-import com.leximibel.sgtp_backend.model.enums.CategoriaGasto;
+import com.leximibel.sgtp_backend.entity.enums.CategoriaGasto;
 import com.leximibel.sgtp_backend.service.GastoService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

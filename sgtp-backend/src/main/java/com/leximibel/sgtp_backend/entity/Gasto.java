@@ -1,6 +1,6 @@
-package com.leximibel.sgtp_backend.model;
+package com.leximibel.sgtp_backend.entity;
 
-import com.leximibel.sgtp_backend.model.enums.CategoriaGasto;
+import com.leximibel.sgtp_backend.entity.enums.CategoriaGasto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

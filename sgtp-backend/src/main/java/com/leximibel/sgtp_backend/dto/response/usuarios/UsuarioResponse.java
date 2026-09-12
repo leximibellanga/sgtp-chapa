@@ -1,6 +1,6 @@
 package com.leximibel.sgtp_backend.dto.response.usuarios;
 
-import com.leximibel.sgtp_backend.model.enums.Role;
+import com.leximibel.sgtp_backend.entity.enums.Role;
 
 import java.time.LocalDateTime;
 

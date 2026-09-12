@@ -1,7 +1,7 @@
 package com.leximibel.sgtp_backend.repository;
 
-import com.leximibel.sgtp_backend.model.Gasto;
-import com.leximibel.sgtp_backend.model.enums.CategoriaGasto;
+import com.leximibel.sgtp_backend.entity.Gasto;
+import com.leximibel.sgtp_backend.entity.enums.CategoriaGasto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;

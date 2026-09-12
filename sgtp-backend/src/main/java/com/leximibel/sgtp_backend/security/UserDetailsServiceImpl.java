@@ -1,6 +1,6 @@
 package com.leximibel.sgtp_backend.security;
 
-import com.leximibel.sgtp_backend.model.Usuario;
+import com.leximibel.sgtp_backend.entity.Usuario;
 import com.leximibel.sgtp_backend.repository.UsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

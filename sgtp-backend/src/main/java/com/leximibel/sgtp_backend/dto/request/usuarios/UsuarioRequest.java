@@ -1,6 +1,6 @@
 package com.leximibel.sgtp_backend.dto.request.usuarios;
 
-import com.leximibel.sgtp_backend.model.enums.Role;
+import com.leximibel.sgtp_backend.entity.enums.Role;
 import jakarta.validation.constraints.*;
 
 public record UsuarioRequest(
