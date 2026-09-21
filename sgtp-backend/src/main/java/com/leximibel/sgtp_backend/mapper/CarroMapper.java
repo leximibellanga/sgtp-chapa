@@ -24,6 +24,9 @@ public class CarroMapper {
 
     // Transformar: List<Carro> -> List<CarroResponse>
     public static List<CarroResponse> toResponseListDTO(List<Carro> carros) {
-        return carros.stream().map(CarroMapper::toResponseDTO).toList();
+        return carros
+                .stream()
+                .map(CarroMapper::toResponseDTO)
+                .toList();
     }
 }
