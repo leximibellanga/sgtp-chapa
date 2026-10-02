@@ -1,9 +1,6 @@
 package com.leximibel.sgtp_backend.service.impl;
 
-import com.leximibel.sgtp_backend.dto.response.dashboard.ComparativoCarroResponse;
-import com.leximibel.sgtp_backend.dto.response.dashboard.EvolucaoMensalResponse;
-import com.leximibel.sgtp_backend.dto.response.dashboard.GastoPorCategoriaResponse;
-import com.leximibel.sgtp_backend.dto.response.dashboard.ResumoMensalResponse;
+import com.leximibel.sgtp_backend.dto.response.dashboard.*;
 import com.leximibel.sgtp_backend.entity.Carro;
 import com.leximibel.sgtp_backend.entity.Gasto;
 import com.leximibel.sgtp_backend.entity.RegistoDiario;
@@ -19,10 +16,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.TextStyle;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -152,5 +146,31 @@ public class DashboardServiceImpl implements DashboardService {
                     saldo
             );
         }).toList();
+    }
+
+
+    @Override
+    public List<ActividadeDiariaResponse> mapaActividade(int dias) {
+        LocalDate fim = LocalDate.now();
+        LocalDate inicio = fim.minusDays(dias - 1L);
+
+        List<RegistoDiario> registos = registoRepository.findByDataBetween(inicio, fim);
+        int totalCarrosAtivos = carroRepository.findByAtivoTrue().size();
+
+        // Agrupa: para cada dia, quais carros (ids distintos) tiveram registo
+        Map<LocalDate, Set<Long>> carrosPorDia = new HashMap<>();
+        for (RegistoDiario r : registos) {
+            carrosPorDia
+                    .computeIfAbsent(r.getData(), d -> new HashSet<>())
+                    .add(r.getCarro().getId());
+        }
+
+        return inicio.datesUntil(fim.plusDays(1))
+                .map(data -> new ActividadeDiariaResponse(
+                        data,
+                        carrosPorDia.getOrDefault(data, Set.of()).size(),
+                        totalCarrosAtivos
+                ))
+                .toList();
     }
 }

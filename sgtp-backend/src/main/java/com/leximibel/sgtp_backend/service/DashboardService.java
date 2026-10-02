@@ -1,9 +1,6 @@
 package com.leximibel.sgtp_backend.service;
 
-import com.leximibel.sgtp_backend.dto.response.dashboard.ComparativoCarroResponse;
-import com.leximibel.sgtp_backend.dto.response.dashboard.EvolucaoMensalResponse;
-import com.leximibel.sgtp_backend.dto.response.dashboard.GastoPorCategoriaResponse;
-import com.leximibel.sgtp_backend.dto.response.dashboard.ResumoMensalResponse;
+import com.leximibel.sgtp_backend.dto.response.dashboard.*;
 
 import java.time.YearMonth;
 import java.util.List;
@@ -20,4 +17,7 @@ public interface DashboardService{
 
     // 4. COMPARATIVO ENTRE CARROS
     public List<ComparativoCarroResponse> comparativoCarro(YearMonth mes);
+
+    // 5. MAPA DE ACTIVIDADE DIARIO (ultimos 90 dias)
+    public List<ActividadeDiariaResponse> mapaActividade(int dias);
 }
