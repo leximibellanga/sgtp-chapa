@@ -16,11 +16,11 @@ const MESES = [
   "Dez",
 ];
 const CORES_NIVEL = [
-  "bg-bg-neutral",
-  "bg-verde-mata/25",
-  "bg-verde-mata/50",
-  "bg-verde-mata/75",
-  "bg-verde-mata",
+  "bg-gray-100",
+  "bg-green-200",
+  "bg-green-400",
+  "bg-green-600",
+  "bg-green-800",
 ];
 
 function nivelIntensidade(trabalharam, total) {
@@ -66,23 +66,23 @@ export default function MapaAtividade() {
   const diasComAtividade = dados.filter((d) => d.carrosTrabalharam > 0).length;
 
   return (
-    <div className="bg-white border border-border rounded-2xl p-5">
+    <div className="bg-white border border-gray-200 rounded-2xl p-5">
       <div className="mb-4">
-        <h2 className="font-display text-base font-bold text-verde-mata">
+        <h2 className="font-bold text-base text-gray-900">
           Atividade da frota
         </h2>
-        <p className="text-xs text-text-muted">
+        <p className="text-xs text-gray-500">
           {diasComAtividade} dias com atividade nos ultimos 3 meses
         </p>
       </div>
 
       <div className="overflow-x-auto pb-2">
         <div className="inline-block">
-          <div className="flex mb-1 pl-8 gap-[3px]">
+          <div className="flex mb-1 pl-8 gap-0.75">
             {semanas.map((_, idx) => {
               const label = labelsMeses.find((m) => m.idx === idx);
               return (
-                <div key={idx} className="text-[10px] text-text-muted w-[13px]">
+                <div key={idx} className="text-[10px] text-gray-500 w-3.25">
                   {label?.label || ""}
                 </div>
               );
@@ -90,11 +90,11 @@ export default function MapaAtividade() {
           </div>
 
           <div className="flex gap-1">
-            <div className="flex flex-col gap-1 pr-2 justify-between h-[105px]">
+            <div className="flex flex-col gap-1 pr-2 justify-between h-26.25">
               {["Seg", "", "Qua", "", "Sex", "", ""].map((label, i) => (
                 <span
                   key={i}
-                  className="text-[10px] text-text-muted leading-none h-[13px]"
+                  className="text-[10px] text-gray-500 leading-none h-3.25"
                 >
                   {label}
                 </span>
@@ -106,13 +106,13 @@ export default function MapaAtividade() {
                 <div key={wIdx} className="flex flex-col gap-1">
                   {semana.map((dia, dIdx) =>
                     !dia ? (
-                      <div key={dIdx} className="w-[13px] h-[13px]" />
+                      <div key={dIdx} className="w-3.25 h-3.25" />
                     ) : (
                       <div
                         key={dIdx}
                         onMouseEnter={() => setHover(dia)}
                         onMouseLeave={() => setHover(null)}
-                        className={`rounded-sm cursor-pointer w-[13px] h-[13px] ${CORES_NIVEL[nivelIntensidade(dia.carrosTrabalharam, dia.totalCarros)]}`}
+                        className={`rounded-sm cursor-pointer w-3.25 h-3.25 ${CORES_NIVEL[nivelIntensidade(dia.carrosTrabalharam, dia.totalCarros)]}`}
                       />
                     ),
                   )}
@@ -124,12 +124,12 @@ export default function MapaAtividade() {
       </div>
 
       <div className="flex items-center justify-between mt-3">
-        <span className="text-[11px] text-text-muted">
+        <span className="text-[11px] text-gray-500">
           {hover
             ? `${new Date(hover.data).toLocaleDateString("pt-PT", { day: "2-digit", month: "long" })}: ${hover.carrosTrabalharam} de ${hover.totalCarros} carros trabalharam`
             : "Passa o rato sobre um dia para ver o detalhe"}
         </span>
-        <div className="flex items-center gap-1 text-[10px] text-text-muted">
+        <div className="flex items-center gap-1 text-[10px] text-gray-500">
           <span>Menos</span>
           {CORES_NIVEL.map((cor, i) => (
             <span key={i} className={`rounded-sm w-2.5 h-2.5 ${cor}`} />
