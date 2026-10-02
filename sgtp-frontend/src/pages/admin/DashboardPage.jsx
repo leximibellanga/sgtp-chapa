@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { TrendingUp, TrendingDown, Wallet, Car } from "lucide-react";
 import { Loader } from "../../components/ui/Loader";
 import GraficoEvolucaoMensal from "../../components/charts/GraficoEvolucaoMensal";
+import MapaActividade from "../../components/charts/MapaActividade";
 import {
   buscarResumoMensal,
   buscarEvolucaoMensal,
@@ -132,6 +133,10 @@ export default function DashboardPage() {
         <GraficoEvolucaoMensal dados={evolucao} />
 
         {/* <GraficoMensal dados={evolucao} /> */}
+      </div>
+
+      <div className="mt-6">
+        <MapaActividade />
       </div>
     </div>
   );
