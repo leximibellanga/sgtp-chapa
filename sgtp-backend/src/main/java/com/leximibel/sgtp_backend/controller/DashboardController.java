@@ -1,9 +1,6 @@
 package com.leximibel.sgtp_backend.controller;
 
-import com.leximibel.sgtp_backend.dto.response.dashboard.ComparativoCarroResponse;
-import com.leximibel.sgtp_backend.dto.response.dashboard.EvolucaoMensalResponse;
-import com.leximibel.sgtp_backend.dto.response.dashboard.GastoPorCategoriaResponse;
-import com.leximibel.sgtp_backend.dto.response.dashboard.ResumoMensalResponse;
+import com.leximibel.sgtp_backend.dto.response.dashboard.*;
 import com.leximibel.sgtp_backend.service.DashboardService;
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -55,5 +52,12 @@ public class DashboardController {
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM") YearMonth mes
     ) {
         return ResponseEntity.ok(dashboardService.comparativoCarro(mes));
+    }
+
+
+    // Mapa de actividade diaria
+    @GetMapping("/mapa-atividade")
+    public ResponseEntity<List<ActividadeDiariaResponse>> mapaAtividade(@RequestParam(defaultValue = "90") int dias) {
+        return ResponseEntity.ok(dashboardService.mapaActividade(dias));
     }
 }
