@@ -37,7 +37,7 @@ export default function MapaAtividade() {
   const [hover, setHover] = useState(null);
 
   useEffect(() => {
-    buscarMapaAtividade(90).then(({ data }) => setDados(data));
+    buscarMapaAtividade(365).then(({ data }) => setDados(data));
   }, []);
 
   if (dados.length === 0) return null;
@@ -69,10 +69,10 @@ export default function MapaAtividade() {
     <div className="bg-white border border-gray-200 rounded-2xl p-5">
       <div className="mb-4">
         <h2 className="font-bold text-base text-gray-900">
-          Atividade da frota
+          Actividade da frota
         </h2>
         <p className="text-xs text-gray-500">
-          {diasComAtividade} dias com atividade nos ultimos 3 meses
+          {diasComAtividade} dias com atividade nos ultimos 365 dias
         </p>
       </div>
 
@@ -94,7 +94,7 @@ export default function MapaAtividade() {
               {["Seg", "", "Qua", "", "Sex", "", ""].map((label, i) => (
                 <span
                   key={i}
-                  className="text-[10px] text-gray-500 leading-none h-3.25"
+                  className="text-[10px] text-gray-500 leading-none h-4"
                 >
                   {label}
                 </span>
@@ -106,13 +106,13 @@ export default function MapaAtividade() {
                 <div key={wIdx} className="flex flex-col gap-1">
                   {semana.map((dia, dIdx) =>
                     !dia ? (
-                      <div key={dIdx} className="w-3.25 h-3.25" />
+                      <div key={dIdx} className="w-4 h-4" />
                     ) : (
                       <div
                         key={dIdx}
                         onMouseEnter={() => setHover(dia)}
                         onMouseLeave={() => setHover(null)}
-                        className={`rounded-sm cursor-pointer w-3.25 h-3.25 ${CORES_NIVEL[nivelIntensidade(dia.carrosTrabalharam, dia.totalCarros)]}`}
+                        className={`rounded-sm cursor-pointer w-4 h-4 ${CORES_NIVEL[nivelIntensidade(dia.carrosTrabalharam, dia.totalCarros)]}`}
                       />
                     ),
                   )}
