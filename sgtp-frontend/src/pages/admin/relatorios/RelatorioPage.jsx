@@ -52,23 +52,23 @@ export default function RelatoriosPage() {
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        <div className="border border-border rounded-xl p-5">
-          <h2 className="font-display text-base font-bold text-emerald-950/80 mb-4">
+        <div className="bg-white border border-gray-200 rounded-2xl p-5">
+          <h2 className="font-bold text-base text-gray-900 mb-4">
             Evolucao mensal
           </h2>
           <GraficoEvolucaoMensal dados={evolucao} />
         </div>
 
-        <div className="border border-border rounded-xl p-5">
-          <h2 className="font-display text-base font-bold text-emerald-950/80 mb-4">
+        <div className="bg-white border border-gray-200 rounded-2xl p-5">
+          <h2 className="font-bold text-base text-gray-900 mb-4">
             Gastos por categoria
           </h2>
           <GraficoPizzaGastos dados={gastosPorCategoria} />
         </div>
       </div>
 
-      <div className="border border-border rounded-xl p-5">
-        <h2 className="font-display text-base font-bold text-emerald-950/80 mb-4">
+      <div className="bg-white border border-gray-200 rounded-2xl p-5">
+        <h2 className="font-bold text-base text-gray-900 mb-4">
           Comparativo entre carros (mes atual)
         </h2>
         <div className="space-y-3">
@@ -77,18 +77,18 @@ export default function RelatoriosPage() {
               key={c.carroId}
               className="flex items-center justify-between text-sm"
             >
-              <span className="font-medium text-verde-mata w-32">
+              <span className="font-medium text-gray-900 w-32">
                 {c.matricula}
               </span>
-              <div className="flex-1 mx-4 bg-bg-neutral rounded-full h-2 overflow-hidden">
+              <div className="flex-1 mx-4 bg-gray-200 rounded-full h-2 overflow-hidden">
                 <div
-                  className="h-full bg-verde-mata"
+                  className="h-full bg-emerald-800"
                   style={{
                     width: `${Math.min(100, (c.saldo / Math.max(...comparativo.map((x) => x.saldo || 1))) * 100)}%`,
                   }}
                 />
               </div>
-              <span className="text-text-muted w-24 text-right">
+              <span className="text-gray-500 w-24 text-right">
                 {Number(c.saldo).toLocaleString("pt-PT")} MT
               </span>
             </div>
