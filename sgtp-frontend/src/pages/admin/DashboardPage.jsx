@@ -67,7 +67,7 @@ export default function DashboardPage() {
       try {
         const [resumoRes, evolucaoRes] = await Promise.all([
           buscarResumoMensal(),
-          buscarEvolucaoMensal(6),
+          buscarEvolucaoMensal(9),
         ]);
         setResumo(resumoRes.data);
         setEvolucao(evolucaoRes.data);
@@ -128,7 +128,7 @@ export default function DashboardPage() {
 
       <div className="bg-white border border-gray-200 rounded-2xl p-5">
         <h2 className="font-bold text-base text-gray-900 mb-4">
-          Evolucao dos ultimos 6 meses
+          Evolucao dos ultimos 9 meses
         </h2>
         <GraficoEvolucaoMensal dados={evolucao} />
 

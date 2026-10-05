@@ -20,7 +20,7 @@ export default function RelatoriosPage() {
     async function carregar() {
       try {
         const [evolucaoRes, categoriaRes, comparativoRes] = await Promise.all([
-          buscarEvolucaoMensal(6),
+          buscarEvolucaoMensal(9),
           buscarGastosPorCategoria(),
           buscarComparativoPorCarro(),
         ]);
@@ -54,7 +54,7 @@ export default function RelatoriosPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <div className="bg-white border border-gray-200 rounded-2xl p-5">
           <h2 className="font-bold text-base text-gray-900 mb-4">
-            Evolucao mensal
+            Evolucao mensal dos ultimos 9 meses
           </h2>
           <GraficoEvolucaoMensal dados={evolucao} />
         </div>
