@@ -92,15 +92,8 @@ export default function FormRegistoPage() {
         </Select>
 
         <Select label="Tipo de dia" {...register("tipoDia")}>
-          <option value="UTIL">
-            {new Date().toLocaleDateString("pt-PT", { weekday: "long" })}
-          </option>
-          <option value="UTIL">Segunda-feira</option>
-          <option value="UTIL">Terca-feira</option>
-          <option value="UTIL">Quarta-feira</option>
-          <option value="UTIL">Quinta-feira</option>
-          <option value="UTIL">Sexta-feira</option>
-          <option value="DOMINGO">Domingo trabalhado</option>
+          <option value="UTIL">UTIL</option>
+          <option value="DOMINGO">DOMINGO</option>
         </Select>
 
         {tipoDia === "UTIL" && (
@@ -113,8 +106,8 @@ export default function FormRegistoPage() {
         <Input
           label="Valor entregue (MT)"
           type="number"
-          step="0.01"
-          placeholder="2500"
+          step="0.5"
+          placeholder="2000"
           error={errors.valorEntregue?.message}
           {...register("valorEntregue")}
         />
