@@ -126,8 +126,8 @@ export default function DashboardPage() {
         />
       </div>
 
-      <div className="border border-emerald-950/30 rounded-xl p-5">
-        <h2 className="font-display text-base font-bold text-emerald-950 mb-4">
+      <div className="bg-white border border-gray-200 rounded-2xl p-5">
+        <h2 className="font-bold text-base text-gray-900 mb-4">
           Evolucao dos ultimos 6 meses
         </h2>
         <GraficoEvolucaoMensal dados={evolucao} />
