@@ -8,10 +8,10 @@ import {
 } from "recharts";
 
 const CORES_CATEGORIA = {
-  MANUTENCAO: "#FF4696",
-  COMBUSTIVEL: "#6A00F4",
-  DOCUMENTACAO: "#FFD6A5",
-  OUTROS: "#B6FF2E",
+  MANUTENCAO: "#f43f5e",
+  COMBUSTIVEL: "#2563eb",
+  DOCUMENTACAO: "#f5930b",
+  OUTROS: "#94a3b8",
 };
 
 const LABEL_CATEGORIA = {
@@ -26,11 +26,11 @@ function TooltipCustom({ active, payload }) {
   const item = payload[0];
 
   return (
-    <div className="bg-white border border-border rounded-lg px-3 py-2 shadow-lg text-xs">
+    <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 shadow-lg text-xs">
       <p className="font-medium" style={{ color: item.payload.fill }}>
         {item.name}
       </p>
-      <p className="text-verde-mata">
+      <p className="text-gray-900">
         {Number(item.value).toLocaleString("pt-PT")} MT
       </p>
     </div>
@@ -46,7 +46,7 @@ export default function GraficoPizzaGastos({ dados }) {
 
   if (dadosFormatados.length === 0) {
     return (
-      <div className="flex items-center justify-center h-70 text-sm text-text-muted">
+      <div className="flex items-center justify-center h-70 text-sm text-gray-500">
         Nenhum gasto registado neste periodo.
       </div>
     );
@@ -68,7 +68,7 @@ export default function GraficoPizzaGastos({ dados }) {
           {dadosFormatados.map((entry) => (
             <Cell
               key={entry.categoria}
-              fill={CORES_CATEGORIA[entry.categoria] || "#6B7568"}
+              fill={CORES_CATEGORIA[entry.categoria] || "#94a3b8"}
             />
           ))}
         </Pie>
