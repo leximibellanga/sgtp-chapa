@@ -148,16 +148,14 @@ public class DashboardServiceImpl implements DashboardService {
         }).toList();
     }
 
-
     @Override
-    public List<ActividadeDiariaResponse> mapaActividade(int dias) {
-        LocalDate fim = LocalDate.now();
-        LocalDate inicio = fim.minusDays(dias - 1L);
+    public List<ActividadeDiariaResponse> mapaActividade(int ano) {
+        LocalDate inicio = LocalDate.of(ano, 1, 1);
+        LocalDate fim = LocalDate.of(ano, 12, 31);
 
         List<RegistoDiario> registos = registoRepository.findByDataBetween(inicio, fim);
         int totalCarrosAtivos = carroRepository.findByAtivoTrue().size();
 
-        // Agrupa: para cada dia, quais carros (ids distintos) tiveram registo
         Map<LocalDate, Set<Long>> carrosPorDia = new HashMap<>();
         for (RegistoDiario r : registos) {
             carrosPorDia
@@ -165,6 +163,7 @@ public class DashboardServiceImpl implements DashboardService {
                     .add(r.getCarro().getId());
         }
 
+        // Gera todos os dias do ano, incluindo os futuros (sem registos -> 0 carros)
         return inicio.datesUntil(fim.plusDays(1))
                 .map(data -> new ActividadeDiariaResponse(
                         data,

@@ -19,5 +19,5 @@ public interface DashboardService{
     public List<ComparativoCarroResponse> comparativoCarro(YearMonth mes);
 
     // 5. MAPA DE ACTIVIDADE DIARIO (ultimos 90 dias)
-    public List<ActividadeDiariaResponse> mapaActividade(int dias);
+    public List<ActividadeDiariaResponse> mapaActividade(int ano);
 }
