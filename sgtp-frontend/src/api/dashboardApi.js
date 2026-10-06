@@ -22,6 +22,6 @@ export function buscarComparativoPorCarro(mes) {
   });
 }
 
-export function buscarMapaAtividade(dias = 90) {
-  return axiosClient.get("/dashboard/mapa-atividade", { params: { dias } });
+export function buscarMapaAtividade(ano) {
+  return axiosClient.get("/dashboard/mapa-atividade", { params: { ano } });
 }
