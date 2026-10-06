@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Year;
 import java.time.YearMonth;
 import java.util.List;
 
@@ -57,7 +58,9 @@ public class DashboardController {
 
     // Mapa de actividade diaria
     @GetMapping("/mapa-atividade")
-    public ResponseEntity<List<ActividadeDiariaResponse>> mapaAtividade(@RequestParam(defaultValue = "90") int dias) {
-        return ResponseEntity.ok(dashboardService.mapaActividade(dias));
+    public ResponseEntity<List<ActividadeDiariaResponse>> mapaAtividade(
+            @RequestParam(required = false) Integer ano) {
+        int anoFiltro = (ano != null) ? ano : Year.now().getValue();
+        return ResponseEntity.ok(dashboardService.mapaActividade(anoFiltro));
     }
 }
