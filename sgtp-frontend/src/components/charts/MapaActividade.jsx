@@ -93,10 +93,10 @@ export default function MapaAtividade() {
           </p>
         </div>
 
-        <div className="flex items-center gap-1 bg-gray-100 rounded-lg px-1 py-1">
+        <div className="flex items-center border border-gray-200 gap-1 bg-gray-100 rounded-lg px-1 py-1">
           <button
             onClick={() => setAno((a) => a - 1)}
-            className="p-1 rounded-md hover:bg-white text-gray-600"
+            className="p-1 rounded-md bg-green-700 text-white cursor-pointer transition-all duration-300 hover:bg-green-800"
             aria-label="Ano anterior"
           >
             <ChevronLeft size={16} />
@@ -106,7 +106,7 @@ export default function MapaAtividade() {
           </span>
           <button
             onClick={() => setAno((a) => a + 1)}
-            className="p-1 rounded-md hover:bg-white text-gray-600"
+            className="p-1 rounded-md bg-green-700 text-white cursor-pointer transition-all duration-300 hover:bg-green-800"
             aria-label="Ano seguinte"
           >
             <ChevronRight size={16} />

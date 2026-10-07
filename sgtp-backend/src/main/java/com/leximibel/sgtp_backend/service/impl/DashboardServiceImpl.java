@@ -87,7 +87,7 @@ public class DashboardServiceImpl implements DashboardService {
                     BigDecimal receita = somarValorEntregue(registoRepository.findByDataBetween(inicio, fim));
                     BigDecimal gasto = somarValorGasto(gastoRepository.findByDataBetweenOrderByDataDesc(inicio, fim));
                     BigDecimal saldo = receita.subtract(gasto);
-                    String label = mes.getMonth().getDisplayName(TextStyle.SHORT, new Locale("pt"))+ "/" + mes.getYear();
+                    String label = mes.getMonth().getDisplayName(TextStyle.SHORT, new Locale("pt"));
 
                     return new EvolucaoMensalResponse(
                             label,
