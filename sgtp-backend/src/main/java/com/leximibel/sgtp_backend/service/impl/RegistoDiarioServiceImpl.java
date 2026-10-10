@@ -1,6 +1,7 @@
 package com.leximibel.sgtp_backend.service.impl;
 
 import com.leximibel.sgtp_backend.dto.request.registo_diario.RegistoDiarioRequest;
+import com.leximibel.sgtp_backend.dto.response.PaginaResponse;
 import com.leximibel.sgtp_backend.dto.response.registo_diario.RegistoDiarioResponse;
 import com.leximibel.sgtp_backend.entity.Carro;
 import com.leximibel.sgtp_backend.entity.RegistoDiario;
@@ -13,6 +14,9 @@ import com.leximibel.sgtp_backend.repository.CarroRepository;
 import com.leximibel.sgtp_backend.repository.RegistoDiarioRepository;
 import com.leximibel.sgtp_backend.repository.UsuarioRepository;
 import com.leximibel.sgtp_backend.service.RegistoDiarioService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -152,6 +156,25 @@ public class RegistoDiarioServiceImpl implements RegistoDiarioService {
         repository.delete(registoDiario);
     }
 
+    // -------------
+    @Override
+    public PaginaResponse<RegistoDiarioResponse> listarTodos(Long carroId, Long usuarioId, TipoDia tipoDia, int pagina, int tamanho) {
+        Pageable pageable = PageRequest.of(pagina, tamanho);
+        Page<RegistoDiario> paginaRegistos =
+                repository.buscarComFiltros(carroId, usuarioId, tipoDia, pageable);
+
+        return toPaginaResponse(paginaRegistos);
+    }
+
+    @Override
+    public PaginaResponse<RegistoDiarioResponse> listarMeusRegistos(String emailUsuarioLogado, int pagina, int tamanho) {
+        Usuario usuario = usuarioAutenticado(emailUsuarioLogado);
+        Pageable pageable = PageRequest.of(pagina, tamanho);
+        Page<RegistoDiario> paginaRegistos = repository.buscarPorUsuario(usuario.getId(), pageable);
+
+        return toPaginaResponse(paginaRegistos);
+    }
+
     // ============== Regras de negocio ===========
     private void aplicarRegrasDeNegocio(RegistoDiario registoDiario, RegistoDiarioRequest request) {
         if (request.tipoDia() == TipoDia.UTIL) {
@@ -169,5 +192,16 @@ public class RegistoDiarioServiceImpl implements RegistoDiarioService {
             registoDiario.setReceita(null);
             registoDiario.setJustificativa(null);
         }
+    }
+
+    private PaginaResponse<RegistoDiarioResponse> toPaginaResponse(Page<RegistoDiario> pagina) {
+        return new PaginaResponse<>(
+                RegistoDiarioMapper.toResponseListDTO(pagina.getContent()),
+                pagina.getNumber(),
+                pagina.getTotalPages(),
+                pagina.getTotalElements(),
+                pagina.isFirst(),
+                pagina.isLast()
+        );
     }
 }

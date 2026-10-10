@@ -1,6 +1,7 @@
 package com.leximibel.sgtp_backend.service;
 
 import com.leximibel.sgtp_backend.dto.request.registo_diario.RegistoDiarioRequest;
+import com.leximibel.sgtp_backend.dto.response.PaginaResponse;
 import com.leximibel.sgtp_backend.dto.response.registo_diario.RegistoDiarioResponse;
 import com.leximibel.sgtp_backend.entity.enums.TipoDia;
 
@@ -25,4 +26,9 @@ public interface RegistoDiarioService {
 
     // Eliminar registo
     public void deletarRegisto(Long id);
+
+    // -----------
+    PaginaResponse<RegistoDiarioResponse> listarTodos(Long carroId, Long usuarioId, TipoDia tipoDia, int pagina, int tamanho);
+
+    PaginaResponse<RegistoDiarioResponse> listarMeusRegistos(String emailUsuarioLogado, int pagina, int tamanho);
 }
