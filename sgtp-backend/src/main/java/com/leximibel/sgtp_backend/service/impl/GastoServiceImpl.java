@@ -1,6 +1,7 @@
 package com.leximibel.sgtp_backend.service.impl;
 
 import com.leximibel.sgtp_backend.dto.request.gasto.GastoRequest;
+import com.leximibel.sgtp_backend.dto.response.PaginaResponse;
 import com.leximibel.sgtp_backend.dto.response.gasto.GastoResponse;
 import com.leximibel.sgtp_backend.entity.Carro;
 import com.leximibel.sgtp_backend.entity.Gasto;
@@ -12,6 +13,9 @@ import com.leximibel.sgtp_backend.repository.CarroRepository;
 import com.leximibel.sgtp_backend.repository.GastoRepository;
 import com.leximibel.sgtp_backend.repository.UsuarioRepository;
 import com.leximibel.sgtp_backend.service.GastoService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -111,5 +115,21 @@ public class GastoServiceImpl implements GastoService {
     public void deletarGasto(Long id) {
         Gasto gasto = buscarGastoPeloId(id);
         repository.delete(gasto);
+    }
+
+    // --------------
+    @Override
+    public PaginaResponse<GastoResponse> listarTodos(Long carroId, CategoriaGasto categoriaGasto, int pagina, int tamanho) {
+        Pageable pageable = PageRequest.of(pagina, tamanho);
+        Page<Gasto> paginaGastos = repository.buscarComFiltros(carroId, categoriaGasto, pageable);
+
+        return new PaginaResponse<>(
+                GastoMapper.toResponseDTOList(paginaGastos.getContent()),
+                paginaGastos.getNumber(),
+                paginaGastos.getTotalPages(),
+                paginaGastos.getTotalElements(),
+                paginaGastos.isFirst(),
+                paginaGastos.isLast()
+        );
     }
 }

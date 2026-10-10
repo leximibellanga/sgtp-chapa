@@ -1,6 +1,7 @@
 package com.leximibel.sgtp_backend.service;
 
 import com.leximibel.sgtp_backend.dto.request.gasto.GastoRequest;
+import com.leximibel.sgtp_backend.dto.response.PaginaResponse;
 import com.leximibel.sgtp_backend.dto.response.gasto.GastoResponse;
 import com.leximibel.sgtp_backend.entity.enums.CategoriaGasto;
 
@@ -23,4 +24,8 @@ public interface GastoService {
 
     // apagar um gasto pelo id
     public void deletarGasto(Long id);
+
+
+    // --------
+    PaginaResponse<GastoResponse> listarTodos(Long carroId, CategoriaGasto categoriaGasto, int pagina, int tamanho);
 }
