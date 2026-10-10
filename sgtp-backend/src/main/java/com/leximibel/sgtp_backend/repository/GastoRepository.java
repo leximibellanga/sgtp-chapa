@@ -2,7 +2,11 @@ package com.leximibel.sgtp_backend.repository;
 
 import com.leximibel.sgtp_backend.entity.Gasto;
 import com.leximibel.sgtp_backend.entity.enums.CategoriaGasto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -22,4 +26,18 @@ public interface GastoRepository extends JpaRepository<Gasto, Long> {
 
     // Listar os gastos comecando da data atual, ou seja, ordernar pela data de criacao
     List<Gasto> findByOrderByDataDesc();
+
+    // ----------------
+    @Query("""
+            SELECT g FROM Gasto g 
+            WHERE (:carroId IS NULL OR g.carro.id = :carroId) 
+            AND (:categoriaGasto IS NULL OR g.categoria = :categoriaGasto) 
+            ORDER BY g.data DESC
+    """)
+    Page<Gasto> buscarComFiltros(
+            @Param("carroId") Long carroId,
+            @Param("categoriaGasto") CategoriaGasto categoriaGasto,
+            Pageable pageable
+    );
+
 }
