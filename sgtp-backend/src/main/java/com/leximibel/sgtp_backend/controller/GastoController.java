@@ -1,6 +1,7 @@
 package com.leximibel.sgtp_backend.controller;
 
 import com.leximibel.sgtp_backend.dto.request.gasto.GastoRequest;
+import com.leximibel.sgtp_backend.dto.response.PaginaResponse;
 import com.leximibel.sgtp_backend.dto.response.gasto.GastoResponse;
 import com.leximibel.sgtp_backend.entity.enums.CategoriaGasto;
 import com.leximibel.sgtp_backend.service.GastoService;
@@ -68,5 +69,18 @@ public class GastoController {
     ) {
         gastoService.deletarGasto(id);
         return ResponseEntity.ok("Gasto deletado com sucesso!");
+    }
+
+
+    // ----------
+    // Listar todos gastos com paginacao
+    @GetMapping("/paginacao")
+    public ResponseEntity<PaginaResponse<GastoResponse>> listarTodos(
+            @RequestParam(required = false) Long carroId,
+            @RequestParam(required = false) CategoriaGasto categoriaGasto,
+            @RequestParam(defaultValue = "0") int pagina,
+            @RequestParam(defaultValue = "10") int tamanho
+    ) {
+        return ResponseEntity.ok(gastoService.listarTodos(carroId, categoriaGasto, pagina, tamanho));
     }
 }
