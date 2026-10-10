@@ -1,6 +1,7 @@
 package com.leximibel.sgtp_backend.controller;
 
 import com.leximibel.sgtp_backend.dto.request.registo_diario.RegistoDiarioRequest;
+import com.leximibel.sgtp_backend.dto.response.PaginaResponse;
 import com.leximibel.sgtp_backend.dto.response.registo_diario.RegistoDiarioResponse;
 import com.leximibel.sgtp_backend.entity.enums.TipoDia;
 import com.leximibel.sgtp_backend.service.RegistoDiarioService;
@@ -93,5 +94,29 @@ public class RegistoDiarioController {
     ) {
         service.deletarRegisto(id);
         return ResponseEntity.ok("Registo deletado com sucesso!");
+    }
+
+
+    // -----------
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/paginacao")
+    public ResponseEntity<PaginaResponse<RegistoDiarioResponse>> listarTodos(
+            @RequestParam(required = false) Long carroId,
+            @RequestParam(required = false) Long usuarioId,
+            @RequestParam(required = false) TipoDia tipoDia,
+            @RequestParam(defaultValue = "0") int pagina,
+            @RequestParam(defaultValue = "10") int tamanho
+    ) {
+        return ResponseEntity.ok(service.listarTodos(carroId, usuarioId, tipoDia, pagina, tamanho));
+    }
+
+    @PreAuthorize("hasAnyRole('ADMIN', 'MOTORISTA')")
+    @GetMapping("/paginacao/meus")
+    public ResponseEntity<PaginaResponse<RegistoDiarioResponse>> listarMeusRegistos(
+            Authentication auth,
+            @RequestParam(defaultValue = "0") int pagina,
+            @RequestParam(defaultValue = "10") int tamanho
+    ) {
+        return ResponseEntity.ok(service.listarMeusRegistos(auth.getName(), pagina, tamanho));
     }
 }
