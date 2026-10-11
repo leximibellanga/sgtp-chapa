@@ -5,7 +5,7 @@ import axiosClient from "./axiosClient";
 // - categoria
 // - por data: data de inicio ate data fim
 export function listarGastos(filtros = {}) {
-  return axiosClient.get("/gastos", { params: filtros });
+  return axiosClient.get("/gastos/paginacao", { params: filtros });
 }
 
 // listar gasto pelo id

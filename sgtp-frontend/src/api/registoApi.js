@@ -1,11 +1,11 @@
 import axiosClient from "./axiosClient";
 
 export function listarRegistos(filtros = {}) {
-  return axiosClient.get("/registos", { params: filtros });
+  return axiosClient.get("/registos/paginacao", { params: filtros });
 }
 
 export function listarMeusRegistos() {
-  return axiosClient.get("/registos/meus");
+  return axiosClient.get("/registos/paginacao/meus");
 }
 
 export function buscarRegistoPorId(id) {
