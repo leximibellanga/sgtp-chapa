@@ -4,8 +4,8 @@ export function listarRegistos(filtros = {}) {
   return axiosClient.get("/registos/paginacao", { params: filtros });
 }
 
-export function listarMeusRegistos() {
-  return axiosClient.get("/registos/paginacao/meus");
+export function listarMeusRegistos(params = {}) {
+  return axiosClient.get("/registos/paginacao/meus", { params });
 }
 
 export function buscarRegistoPorId(id) {
