@@ -19,7 +19,7 @@ export default function DashboardMotoristaPage() {
 
   useEffect(() => {
     listarMeusRegistos()
-      .then(({ data }) => setRegistos(data))
+      .then(({ data }) => setRegistos(data.conteudo))
       .catch(() => toast.error("Erro ao carregar os teus dados"))
       .finally(() => setCarregando(false));
   }, []);
